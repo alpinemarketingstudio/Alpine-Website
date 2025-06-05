@@ -1,0 +1,93 @@
+.contact-form-wrapper {
+    background: linear-gradient(to bottom, #dbeafe, #ffffff);
+  overflow: hidden;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  min-height: 100vh;
+}
+
+.form-headings h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color:#000;
+}
+
+.form-headings p {
+  font-size: 1rem;
+  color:#000;
+}
+
+.animate-input {
+  transition: all 0.3s ease;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  box-shadow: none;
+}
+
+.animate-input:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+button[type="submit"] {
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+.image-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 2rem;
+  object-fit: cover;
+}
+
+form .form-label {
+  font-weight: 500;
+  color: #333;
+}
+
+form .form-control,
+form .form-select,
+form textarea {
+  background-color: #fff;
+}
+
+@media (max-width: 911px) {
+  .form-headings h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .image-side {
+    display: none !important;
+  }
+
+  .form-headings h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .form-headings h2 {
+    font-size: 1.4rem;
+  }
+
+  .form-headings p {
+    font-size: 0.9rem;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 0.9rem;
+  }
+}

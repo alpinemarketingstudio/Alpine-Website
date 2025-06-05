@@ -1,0 +1,143 @@
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+}
+
+.highlight-green {
+  color: #00cc66; 
+}
+
+.highlight-black {
+  color: #000000; 
+}
+
+.services-section {
+  padding: 60px 20px;
+  background: #f5f7fa;
+}
+
+.services-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.services-heading .highlight {
+  color: #28a745;
+}
+
+.services-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.service-card {
+  display: flex;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, #ffffff, #cde4f8);
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.service-card.left .media-box {
+  order: 1;
+}
+.service-card.left .desc-box {
+  order: 2;
+}
+.service-card.right .media-box {
+  order: 2;
+}
+.service-card.right .desc-box {
+  order: 1;
+}
+
+.media-box {
+  flex: 1 1 40%;
+  position: relative;
+  max-width: 500px;
+}
+
+.desc-box {
+  flex: 1 1 50%;
+  padding: 20px;
+}
+
+.media-img,
+.video-wrapper video {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.learn-more {
+  margin-top: 20px;
+  background: #28a745;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.learn-more:hover {
+  background: #218838;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  cursor: pointer;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 991px) {
+  .service-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .media-box,
+  .desc-box {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .learn-more {
+    margin: 15px auto 0;
+  }
+
+  .play-button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
