@@ -4,7 +4,7 @@ import blogData from "../data/Blog.js";
 
 const Blog = () => {
   return (
-    <section className="blog-section">
+    <section id="blog" className="blog-section">
       <p>Learn new technology</p>
       <h2>Read our blog</h2>
 

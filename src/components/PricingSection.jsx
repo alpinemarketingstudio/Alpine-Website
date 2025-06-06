@@ -9,7 +9,7 @@ export default function PricingSection() {
   const plans = pricingData[activeCategory];
 
   return (
-    <div className="pricing-section">
+    <section id="pricing" className="pricing-section">
       <h2 className="title">
         Unleash Your Brand’s Potential <span className="highlight">with Tailored Creative Solutions</span>
       </h2>
@@ -46,6 +46,6 @@ export default function PricingSection() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
