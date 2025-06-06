@@ -24,7 +24,7 @@ function Navbar() {
 
         <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
           <ul className="navbar-nav text-center gap-3">
-            {["Services", "Pricing", "Blog", "About"].map((item) => (
+            {["Services", "Pricing", "About", "Blog"].map((item) => (
               <li className="nav-item" key={item}>
                 <a className="nav-link nav-animate text-success" href="#">
                   {item}

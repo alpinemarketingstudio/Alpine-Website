@@ -4,6 +4,7 @@ import Services from './components/Services';
 import PricingSection from './components/PricingSection';
 import WhyAlpine from './components/WhyAlpine';
 import ContactForm from './components/ContactForm';
+import Blog from './components/Blog';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <PricingSection />
       <WhyAlpine />
       <ContactForm />
+      <Blog />
     </>
   );
 }
