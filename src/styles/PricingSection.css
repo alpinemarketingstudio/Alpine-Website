@@ -1,23 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Poppins:wght@400;500&display=swap');
+
 .pricing-section {
-  background: #000;
-  color: white;
+  background: #f9fafb;
+  color: black;
   padding: 64px 16px;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
 }
 
 .title {
   font-size: 40px;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 8px;
+  font-family: 'Lora', serif;
+  color: black;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
 }
 
-.highlight {
-  color: #22c55e;
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .subtitle {
   margin-bottom: 32px;
   font-size: 18px;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+}
+
+.highlight {
+  color: #4CAF50;
 }
 
 .tabs {
@@ -36,6 +53,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
+  border: 1px solid #ddd;
 }
 
 .tab:hover {
@@ -44,8 +62,9 @@
 }
 
 .tab.active {
-  background: #22c55e;
-  color: black;
+  background: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
 }
 
 .cards {
@@ -75,17 +94,32 @@
 }
 
 .card {
+  position: relative;
   background: white;
   color: black;
   border-radius: 16px;
   padding: 32px;
   transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.04);
 }
 
 .card:hover {
   transform: scale(1.04);
-  background: linear-gradient(to bottom, #22c55e 0%, #a7f3d0 100%);
-  box-shadow: 0 20px 40px rgba(34, 197, 94, 0.4);
+  background: linear-gradient(to bottom, #4CAF50 0%, #e4fef1 100%);
+  box-shadow: 0 20px 40px rgba(34, 197, 94, 0.3);
+  color: black;
+}
+
+.recommended-tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #fde68a;
+  color: #92400e;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 12px;
 }
 
 .price {

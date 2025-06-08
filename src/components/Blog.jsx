@@ -5,8 +5,8 @@ import blogData from "../data/Blog.js";
 const Blog = () => {
   return (
     <section id="blog" className="blog-section">
-      <p>Learn new technology</p>
-      <h2>Read our blog</h2>
+      <p className="blog-subtitle">Learn new technology</p>
+      <h2 className="blog-heading">Read our blog</h2>
 
       <div className="blog-cards">
         {blogData.map((item, index) => (

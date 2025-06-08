@@ -11,7 +11,7 @@ export default function PricingSection() {
   return (
     <section id="pricing" className="pricing-section">
       <h2 className="title">
-        Unleash Your Brand’s Potential <span className="highlight">with Tailored Creative Solutions</span>
+        Unleash Your Brand’s Potential with Tailored Creative Solutions
       </h2>
       <p className="subtitle">
         Choose your service and explore premium packages designed to accelerate your success.
