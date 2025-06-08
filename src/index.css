@@ -93,3 +93,7 @@
     padding: 40px 10px;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}

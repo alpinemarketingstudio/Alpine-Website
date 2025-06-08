@@ -84,7 +84,7 @@ form {
 .field textarea {
   padding: 12px 14px;
   border-radius: 8px;
-  border: 1px solid #bfdbfe;
+  border: 1px solid #bde6c6;;
   background: #fff;
   transition: border 0.3s ease;
 }
@@ -92,7 +92,7 @@ form {
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
-  border-color: #3b82f6;
+  border-color: #28a745;;
   outline: none;
 }
 
@@ -106,12 +106,12 @@ form {
 }
 
 .form-check a {
-  color: #2563eb;
+  color: #28a745;
   text-decoration: underline;
 }
 
 button[type="submit"] {
-  background: #2563eb;
+  background: #28a745;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -124,7 +124,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background: #1e40af;
+  background: #28a745;
 }
 
 .error {
