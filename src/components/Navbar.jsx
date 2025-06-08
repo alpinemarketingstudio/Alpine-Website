@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
+import '../styles/Navbar.css';
 
 const navItems = [
   { name: "Services", href: "#services" },
