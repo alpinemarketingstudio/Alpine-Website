@@ -1,37 +1,90 @@
-// src/App.jsx
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+  Navigate,
+} from 'react-router-dom';
 
 import Navbar from './components/Navbar';
-import HomePage from './pages/HomePage';
-import AdminContacts from './pages/AdminContacts';
 import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import DashboardLayout from './pages/DashboardLayout';
+import AdminContacts from './pages/AdminContacts';
+import AdminLoginPage from './pages/AdminLoginPage';
+import AdminDashboard from './pages/AdminDashboard';
 
-// Helper component to conditionally render layout based on route
+function PrivateRoute({ children }) {
+  const token = localStorage.getItem('adminToken');
+  return token ? children : <Navigate to="/dashboard/login" replace />;
+}
+
 function Layout({ children }) {
   const location = useLocation();
-  const isAdminRoute = location.pathname.startsWith('/admin');
+  const isDashboardRoute = location.pathname.startsWith('/dashboard');
 
   return (
     <>
-      {!isAdminRoute && <Navbar />}
+      {!isDashboardRoute && <Navbar />}
       {children}
-      {!isAdminRoute && <Footer />}
+      {!isDashboardRoute && <Footer />}
     </>
   );
 }
 
-function App() {
+function AppWrapper() {
   return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/admin/contact-messages" element={<AdminContacts />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <Layout>
+      <Routes>
+        {/* Public Route */}
+        <Route path="/" element={<HomePage />} />
+
+        {/* Dashboard login route (public) */}
+        <Route path="/dashboard/login" element={<AdminLoginPage />} />
+
+        {/* Redirect /dashboard to login if no token */}
+        <Route
+          path="/dashboard"
+          element={
+            localStorage.getItem('adminToken') ? (
+              <Navigate to="/dashboard/home" replace />
+            ) : (
+              <Navigate to="/dashboard/login" replace />
+            )
+          }
+        />
+
+        {/* Protected Dashboard Routes */}
+        <Route
+          path="/dashboard/home"
+          element={
+            <PrivateRoute>
+              <DashboardLayout>
+                <AdminDashboard />
+              </DashboardLayout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/dashboard/contact-messages"
+          element={
+            <PrivateRoute>
+              <DashboardLayout>
+                <AdminContacts />
+              </DashboardLayout>
+            </PrivateRoute>
+          }
+        />
+      </Routes>
+    </Layout>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <Router>
+      <AppWrapper />
+    </Router>
+  );
+}

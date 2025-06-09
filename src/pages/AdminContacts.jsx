@@ -12,7 +12,14 @@ const AdminContacts = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/contact/')
+    const token = localStorage.getItem('adminToken');
+
+    fetch('http://127.0.0.1:8000/api/contact/', {
+      headers: {
+        'Authorization': `Token ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })
       .then(res => {
         if (!res.ok) throw new Error('Network response was not ok');
         return res.json();
@@ -60,10 +67,16 @@ const AdminContacts = () => {
   const handleDelete = async () => {
     if (!deleteId) return;
 
+    const token = localStorage.getItem('adminToken');
+
     try {
       const res = await fetch(`http://127.0.0.1:8000/api/contact/${deleteId}/`, {
         method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
       });
+
       if (res.ok) {
         setContacts(prev => prev.filter(c => c.id !== deleteId));
         closeDeleteModal();

@@ -92,7 +92,7 @@ form {
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
-  border-color: #28a745;;
+  border-color: #1E90FF;
   outline: none;
 }
 
@@ -106,12 +106,12 @@ form {
 }
 
 .form-check a {
-  color: #28a745;
+  color: blue;
   text-decoration: underline;
 }
 
 button[type="submit"] {
-  background: #28a745;
+  background: #1E90FF;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -124,7 +124,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background: #28a745;
+  background: #1E90FF;
 }
 
 .error {
