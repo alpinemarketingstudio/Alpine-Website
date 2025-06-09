@@ -3,7 +3,7 @@ import heroVideo from "../assets/vid2.mp4";
 
 const Home = () => {
   const scrollToSection = () => {
-    const section = document.getElementById("about");
+    const section = document.getElementById("services");
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     }

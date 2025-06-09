@@ -21,7 +21,7 @@ export default function AdminLoginPage() {
         password,
       });
       localStorage.setItem('adminToken', res.data.token);
-      navigate('/admin');
+      navigate('/dashboard/home');
     } catch (err) {
       setError('Invalid credentials');
     } finally {
