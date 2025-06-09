@@ -34,7 +34,7 @@ export default function PricingSection() {
           <div key={plan.title} className="card">
             <h3>{plan.title}</h3>
             <p className="description">{plan.description}</p>
-            <p className="price">{plan.price} <span>/ Month</span></p>
+            <p className="price">{plan.price} <span>/ project</span></p>
             <ul className="features">
               {plan.features.map((feature, idx) => (
                 <li key={idx} className={feature.includes('❌') ? 'disabled' : 'enabled'}>

@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
@@ -7,7 +6,6 @@ import HomePage from './pages/HomePage';
 import AdminContacts from './pages/AdminContacts';
 import Footer from './components/Footer';
 
-// Helper component to conditionally render layout based on route
 function Layout({ children }) {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
