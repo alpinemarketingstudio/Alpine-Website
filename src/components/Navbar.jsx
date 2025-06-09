@@ -66,7 +66,7 @@ function Navbar() {
                 onClick={handleContactClick}
               >
                 <i className="bi bi-telephone me-2"></i> Contact Us
-              </a>
+              </button>
             </li>
           </ul>
         </div>
@@ -77,7 +77,7 @@ function Navbar() {
             onClick={handleContactClick}
           >
             <i className="bi bi-telephone me-2"></i> Contact Us
-          </a>
+          </button>
         </div>
       </div>
     </nav>
