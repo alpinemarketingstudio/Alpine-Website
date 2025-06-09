@@ -14,7 +14,7 @@ const AdminContacts = () => {
   useEffect(() => {
     const token = localStorage.getItem('adminToken');
 
-    fetch('http://127.0.0.1:8000/api/contact/', {
+    fetch('http://127.0.0.1:8000/api/contact/list/', {
       headers: {
         'Authorization': `Token ${token}`,
         'Content-Type': 'application/json',
@@ -70,10 +70,10 @@ const AdminContacts = () => {
     const token = localStorage.getItem('adminToken');
 
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/contact/${deleteId}/`, {
+      const res = await fetch(`http://127.0.0.1:8000/api/contact/delete/${deleteId}/`, {
         method: 'DELETE',
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': `Token ${token}`,
         },
       });
 

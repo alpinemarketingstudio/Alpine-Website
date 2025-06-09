@@ -1,11 +1,18 @@
 from django.urls import path
-from . import views
-from .views import ServiceInquiryCreateAPIView
-from .views import AdminLoginAPIView
+from .views import (
+    AdminLoginAPIView,
+    ContactMessageCreateAPIView,
+    ContactMessageListAPIView,
+    ContactMessageDeleteAPIView,
+    ServiceInquiryCreateAPIView
+)
 
 urlpatterns = [
-    path('contact/',views.contact_list_create, name='contact_list_create'),
-    path('contact/<int:pk>/', views.contact_delete, name='contact_delete'),
-    path('service-inquiry/', ServiceInquiryCreateAPIView.as_view(), name='service-inquiry'),
     path('admin/login/', AdminLoginAPIView.as_view(), name='admin-login'),
+    
+    path('contact/', ContactMessageCreateAPIView.as_view(), name='contact-create'),
+    path('contact/list/', ContactMessageListAPIView.as_view(), name='contact-list'),
+    path('contact/delete/<int:pk>/', ContactMessageDeleteAPIView.as_view(), name='contact-delete'),
+
+    path('service-inquiry/', ServiceInquiryCreateAPIView.as_view(), name='service-inquiry-create'),
 ]
