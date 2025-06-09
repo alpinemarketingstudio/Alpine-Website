@@ -21,15 +21,15 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { firstName, lastName, email, phone } = form;
+    const { firstName, lastName, email, phone, message } = form;
 
-    if (
-      !firstName.trim() ||
-      !lastName.trim() ||
-      !email.trim() ||
-      !phone.trim()
-    ) {
+    if (!firstName.trim() || !lastName.trim() || !email.trim() || !phone.trim()) {
       setError("Please fill all required fields.");
+      return;
+    }
+
+    if (!/\b\w+\b/.test(message.trim())) {
+      setError("Please enter at least one word in the message.");
       return;
     }
 
@@ -38,34 +38,33 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="container-fluid contact-form-wrapper py-4">
-      <div className="row min-vh-100 align-items-center">
-        <div className="col-md-6 d-flex flex-column align-items-center justify-content-center p-4">
-          <div className="form-headings text-center mb-4">
-            <h2 className="mb-2">Get in touch</h2>
-            <p className="text-muted">Our friendly team would love to hear from you.</p>
+    <div className="contact-form-wrapper">
+      <div className="form-container">
+        <div className="form-left">
+          <div className="form-headings">
+            <h2>Get in Touch</h2>
+            <p>Our friendly team would love to hear from you.</p>
           </div>
-          <form onSubmit={handleSubmit} className="w-100 px-3">
-            <div className="row g-2 mb-3">
-              <div className="col-sm-6">
-                <label htmlFor="firstName" className="form-label">First name *</label>
+
+          <form onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="field">
+                <label htmlFor="firstName">First Name *</label>
                 <input
                   type="text"
                   name="firstName"
                   id="firstName"
-                  className="form-control animate-input"
                   onChange={handleChange}
                   value={form.firstName}
                   required
                 />
               </div>
-              <div className="col-sm-6">
-                <label htmlFor="lastName" className="form-label">Last name *</label>
+              <div className="field">
+                <label htmlFor="lastName">Last Name *</label>
                 <input
                   type="text"
                   name="lastName"
                   id="lastName"
-                  className="form-control animate-input"
                   onChange={handleChange}
                   value={form.lastName}
                   required
@@ -73,24 +72,22 @@ const ContactForm = () => {
               </div>
             </div>
 
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email *</label>
+            <div className="field full">
+              <label htmlFor="email">Email *</label>
               <input
                 type="email"
                 name="email"
                 id="email"
-                className="form-control animate-input"
                 onChange={handleChange}
                 value={form.email}
                 required
               />
             </div>
 
-            <div className="row g-2 mb-3">
-              <div className="col-4">
-                <label htmlFor="country" className="form-label">Code</label>
+            <div className="row">
+              <div className="field code">
+                <label htmlFor="country">Code</label>
                 <select
-                  className="form-select animate-input"
                   name="country"
                   id="country"
                   value={form.country}
@@ -103,13 +100,12 @@ const ContactForm = () => {
                   ))}
                 </select>
               </div>
-              <div className="col-8">
-                <label htmlFor="phone" className="form-label">Phone number *</label>
+              <div className="field phone">
+                <label htmlFor="phone">Phone Number *</label>
                 <input
                   type="tel"
                   name="phone"
                   id="phone"
-                  className="form-control animate-input"
                   onChange={handleChange}
                   value={form.phone}
                   required
@@ -117,41 +113,33 @@ const ContactForm = () => {
               </div>
             </div>
 
-            <div className="mb-3">
-              <label htmlFor="message" className="form-label">Message</label>
+            <div className="field full">
+              <label htmlFor="message">Message *</label>
               <textarea
                 name="message"
                 id="message"
                 rows="4"
-                className="form-control animate-input"
                 onChange={handleChange}
                 value={form.message}
+                required
               ></textarea>
             </div>
 
-            <div className="form-check mb-3">
-              <input type="checkbox" className="form-check-input" id="policyCheck" />
-              <label className="form-check-label text-muted" htmlFor="policyCheck">
-                You agree to our friendly <a href="#">privacy policy</a>.
+            <div className="form-check">
+              <input type="checkbox" id="policyCheck" />
+              <label htmlFor="policyCheck">
+                You agree to our <a href="#">privacy policy</a>.
               </label>
             </div>
 
-            {error && <div className="text-danger mb-2">{error}</div>}
+            {error && <div className="error">{error}</div>}
 
-            <button type="submit" className="btn btn-success w-100">
-              Send message
-            </button>
+            <button type="submit">Send Message</button>
           </form>
         </div>
 
-        <div className="col-md-6 p-0 image-side align-items-center justify-content-center d-none d-md-flex">
-          <div className="image-container">
-            <img
-              src={flexImage}
-              alt="Contact visual"
-              className="img-fluid rounded-5"
-            />
-          </div>
+        <div className="form-right">
+          <img src={flexImage} alt="Contact Visual" />
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
 const pricingData = {
   Photography: [
     {
-      title: 'Free',
-      price: '$0',
+      title: 'Basic',
+      price: '$5',
       description: 'Ideal for individuals exploring basic photography assets.',
       features: [
         '50+ Royalty-Free Photos',
@@ -10,10 +10,10 @@ const pricingData = {
         'Single Device Access',
         'Low-Res Downloads',
         'Email Support',
-        'No Custom Shoot Requests ❌',
-        'No Collaboration ❌',
-        'No Commercial Use ❌',
-        'No Priority Support ❌',
+        'Custom Shoot Requests ❌',
+        'Collaboration ❌',
+        'Commercial Use ❌',
+        'Priority Support ❌',
       ],
     },
     {
@@ -26,8 +26,8 @@ const pricingData = {
         'Multi-device Access',
         'High-Res Downloads',
         'Priority Email Support',
-        '1 Custom Shoot / Mo',
-        'No Team Collaboration ❌',
+        '1 Custom Shoot / Month',
+        'Team Collaboration ❌',
         'Limited Commercial Use',
         'Portfolio Integration',
       ],
@@ -52,19 +52,19 @@ const pricingData = {
 
   Videography: [
     {
-      title: 'Free',
-      price: '$0',
-      description: 'Start exploring video tools at no cost.',
+      title: 'Basic',
+      price: '$5',
+      description: 'Start exploring video tools.',
       features: [
         'Basic Video Editor',
         '720p Export Only',
         'Watermarked Output',
         '5GB Cloud Storage',
         'Email Support Only',
-        'No Team Sharing ❌',
-        'No Templates ❌',
-        'No Commercial Use ❌',
-        'No Priority Support ❌',
+        'Team Sharing ❌',
+        'Templates ❌',
+        'Commercial Use ❌',
+        'Priority Support ❌',
       ],
     },
     {
@@ -88,6 +88,7 @@ const pricingData = {
       price: '$150',
       description: 'Full video production capabilities.',
       features: [
+        'Everything in Pro',
         'Unlimited Projects',
         'Advanced Editing Suite',
         'Unlimited Cloud Storage',
@@ -103,19 +104,19 @@ const pricingData = {
 
   'Web Design & Development': [
     {
-      title: 'Free',
-      price: '$0',
+      title: 'Basic',
+      price: '$5',
       description: 'A starter kit to learn and explore.',
       features: [
         'Basic HTML Templates',
-        'No Hosting ❌',
-        'No Code Export ❌',
-        'No CMS Integration ❌',
-        'No SEO Support ❌',
+        'Hosting ❌',
+        'Code Export ❌',
+        'CMS Integration ❌',
+        'SEO Support ❌',
         'Email Support Only',
         'Community Access',
-        'No Team Access ❌',
-        'No Version Control ❌',
+        'Team Access ❌',
+        'Version Control ❌',
       ],
     },
     {
@@ -139,6 +140,7 @@ const pricingData = {
       price: '$150',
       description: 'End-to-end web development powerhouse.',
       features: [
+        'Everything in Pro',
         'Unlimited Templates',
         'Multiple Hosting Options',
         'Advanced Code Export',
@@ -154,25 +156,25 @@ const pricingData = {
 
   'UI/UX Design': [
     {
-      title: 'Free',
-      price: '$0',
-      description: 'Design with limited UI tools for free.',
+      title: 'Basic',
+      price: '$5',
+      description: 'Design with limited UI tools.',
       features: [
         'Access to UI Kits',
         '1 Project',
         'Community Sharing',
-        'No Pro Components ❌',
-        'No Collaboration Tools ❌',
+        'Pro Components ❌',
+        'Collaboration Tools ❌',
         'Email Support',
         'Limited Export Options',
-        'No Real-time Feedback ❌',
-        'No Branding Tools ❌',
+        'Real-time Feedback ❌',
+        'Branding Tools ❌',
       ],
     },
     {
       title: 'Professional',
-      price: '$30',
-      description: 'For freelance designers and teams.',
+      price: '$35',
+      description: 'For freelance designers and small teams.',
       features: [
         'All UI Kits',
         'Unlimited Projects',
@@ -205,19 +207,19 @@ const pricingData = {
 
   'Digital Marketing': [
     {
-      title: 'Free',
-      price: '$0',
+      title: 'Basic',
+      price: '$5',
       description: 'Explore the basics of digital outreach.',
       features: [
         'Email Campaign Tools',
         'Social Media Scheduler (Limited)',
-        'No A/B Testing ❌',
-        'No SEO Checker ❌',
+        'A/B Testing ❌',
+        'SEO Checker ❌',
         'Limited Reports',
         'Email Support',
         '1 Campaign/Month',
-        'No Automation ❌',
-        'No Team Roles ❌',
+        'Automation ❌',
+        'Team Roles ❌',
       ],
     },
     {

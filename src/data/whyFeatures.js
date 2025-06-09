@@ -15,6 +15,14 @@ const features = [
     title: 'Ongoing Support',
     description: 'We don’t disappear after delivery. We’re here for updates, support, and long-term growth.',
   },
+   {
+    title: "Multi-device Access",
+    description: "Seamlessly use our tools and resources across all your devices without interruptions."
+  },
+  {
+    title: "High-Res Downloads",
+    description: "Download your projects in high resolution for superior print and digital use."
+  },
 ];
 
 export default features;

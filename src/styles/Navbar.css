@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Poppins:wght@400;500;600&display=swap');
+
+.custom-navbar {
+  background: #0b0b0b;
+  padding: 0.7rem 1rem;
+  z-index: 1030;
+}
+
+.logo-img {
+  height: 30px;
+  width: auto;
+}
+
+.brand-text {
+  color: white;
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+.nav-animate {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-animate::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: white;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.nav-animate:hover::after,
+.nav-animate.active::after {
+  width: 100%;
+}
+
+.navbar-toggler {
+  margin-left: auto;
+  padding: 0.35rem 0.6rem;
+  background-color: #00c48c;
+  border: none;
+  border-radius: 6px;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4h30v2H0zM0 14h30v2H0zM0 24h30v2H0z'/%3E%3C/svg%3E");
+}
+
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #0b0b0b;
+    padding: 1.5rem;
+    z-index: 1029;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+  }
+
+  .nav-link {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .brand-text {
+    font-size: 1rem;
+  }
+
+  .logo-img {
+    height: 26px;
+  }
+}

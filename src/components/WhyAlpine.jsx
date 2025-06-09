@@ -24,10 +24,10 @@ export default function WhyAlpine() {
   }, []);
 
   return (
-    <section className="why-alpine-section">
+    <section id="why-alpine" className="why-alpine-section">
       <div className="why-alpine-content">
         <h2 className="why-heading">
-          Why Only <span className="highlight">Alpine?</span>
+          Why Only Alpine?
         </h2>
         <div className="features-grid">
           {features.map((feature, index) => (
