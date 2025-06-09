@@ -1,44 +1,36 @@
+// src/App.jsx
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Services from './components/Services';
-import PricingSection from './components/PricingSection';
-import WhyAlpine from './components/WhyAlpine';
-import ContactForm from './components/ContactForm';
-import Blog from './components/Blog';
+import HomePage from './pages/HomePage';
+import AdminContacts from './pages/AdminContacts';
 import Footer from './components/Footer';
+
+// Helper component to conditionally render layout based on route
+function Layout({ children }) {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
+  return (
+    <>
+      {!isAdminRoute && <Navbar />}
+      {children}
+      {!isAdminRoute && <Footer />}
+    </>
+  );
+}
 
 function App() {
   return (
-    <>
-      <Navbar />
-
-      <section id="home">
-        <Home />
-      </section>
-
-      <section id="services">
-        <Services />
-      </section>
-
-      <section id="pricing">
-        <PricingSection />
-      </section>
-
-      <section id="about">
-        <WhyAlpine />
-      </section>
-
-      <section id="blog">
-        <Blog />
-      </section>
-
-      <section id="contact">
-        <ContactForm />
-      </section>
-
-      <Footer />
-    </>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/admin/contact-messages" element={<AdminContacts />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
