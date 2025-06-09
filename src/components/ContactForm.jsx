@@ -11,20 +11,37 @@ const ContactForm = () => {
     phone: "",
     message: "",
     country: "+39",
+    agree: false,
   });
 
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    setForm({ ...form, [name]: type === "checkbox" ? checked : value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { firstName, lastName, email, phone, message } = form;
 
+    const { firstName, lastName, email, phone, message, country, agree } = form;
+
+    // Validation
     if (!firstName.trim() || !lastName.trim() || !email.trim() || !phone.trim()) {
       setError("Please fill all required fields.");
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.trim())) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    const phonePattern = /^[0-9]{7,15}$/;
+    if (!phonePattern.test(phone.trim())) {
+      setError("Please enter a valid phone number (7-15 digits).");
       return;
     }
 
@@ -33,8 +50,49 @@ const ContactForm = () => {
       return;
     }
 
+    if (!agree) {
+      setError("Please agree to the privacy policy.");
+      return;
+    }
+
+    // Clear previous messages
     setError("");
-    alert("Form submitted successfully!");
+    setSuccess("");
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/api/contact/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          first_name: firstName,
+          last_name: lastName,
+          email,
+          phone,
+          country_code: country,
+          message,
+        }),
+      });
+
+      if (response.ok) {
+        setSuccess("Form submitted successfully!");
+        setForm({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          message: "",
+          country: "+39",
+          agree: false,
+        });
+      } else {
+        const data = await response.json();
+        setError(data?.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setError("Failed to submit. Please try again later.");
+    }
   };
 
   return (
@@ -126,13 +184,20 @@ const ContactForm = () => {
             </div>
 
             <div className="form-check">
-              <input type="checkbox" id="policyCheck" />
+              <input
+                type="checkbox"
+                id="policyCheck"
+                name="agree"
+                checked={form.agree}
+                onChange={handleChange}
+              />
               <label htmlFor="policyCheck">
                 You agree to our <a href="#">privacy policy</a>.
               </label>
             </div>
 
             {error && <div className="error">{error}</div>}
+            {success && <div className="success">{success}</div>}
 
             <button type="submit">Send Message</button>
           </form>

@@ -5,7 +5,7 @@ import '../styles/Navbar.css';
 const navItems = [
   { name: "Services", href: "#services" },
   { name: "Pricing", href: "#pricing" },
-  { name: "About", href: "#why-alpine" },
+  { name: "About", href: "#about" },
   { name: "Blog", href: "#blog" },
 ];
 
