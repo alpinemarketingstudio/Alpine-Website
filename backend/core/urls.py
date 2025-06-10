@@ -4,7 +4,9 @@ from .views import (
     ContactMessageCreateAPIView,
     ContactMessageListAPIView,
     ContactMessageDeleteAPIView,
-    ServiceInquiryCreateAPIView
+    ServiceInquiryCreateAPIView,
+    ServiceInquiryListAPIView,
+    ServiceInquiryDeleteAPIView,
 )
 
 urlpatterns = [
@@ -15,4 +17,6 @@ urlpatterns = [
     path('contact/delete/<int:pk>/', ContactMessageDeleteAPIView.as_view(), name='contact-delete'),
 
     path('service-inquiry/', ServiceInquiryCreateAPIView.as_view(), name='service-inquiry-create'),
+    path('service-inquiry/list/', ServiceInquiryListAPIView.as_view(), name='service-inquiry-list'),
+    path('service-inquiry/delete/<int:pk>/', ServiceInquiryDeleteAPIView.as_view(), name='service-inquiry-delete'),
 ]

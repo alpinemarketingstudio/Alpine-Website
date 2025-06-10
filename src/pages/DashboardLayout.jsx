@@ -39,6 +39,12 @@ export default function DashboardLayout({ children }) {
             >
               📬 Contact Messages
             </NavLink>
+            <NavLink
+              to="/dashboard/service-inquiries"
+              style={({ isActive }) => (isActive ? activeLinkStyle : linkStyle)}
+            >
+              📋 Service Inquiries
+            </NavLink>
           </nav>
         </div>
 

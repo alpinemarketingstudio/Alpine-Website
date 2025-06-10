@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { countryCodes } from "../data/countryCode.js";
 import flexImage from "../assets/flex1.jpg";
 import "../styles/ContactForm.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ContactForm = () => {
   const [form, setForm] = useState({
@@ -14,8 +16,9 @@ const ContactForm = () => {
     agree: false,
   });
 
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  // Remove error and success state, since we'll use toast
+  // const [error, setError] = useState("");
+  // const [success, setSuccess] = useState("");
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -29,39 +32,31 @@ const ContactForm = () => {
 
     // Validation
     if (!firstName.trim() || !lastName.trim() || !email.trim() || !phone.trim()) {
-      setError("Please fill all required fields.");
-      setSuccess("");
+      toast.error("Please fill all required fields.");
       return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email.trim())) {
-      setError("Please enter a valid email address.");
-      setSuccess("");
+      toast.error("Please enter a valid email address.");
       return;
     }
 
     const phonePattern = /^[0-9]{7,15}$/;
     if (!phonePattern.test(phone.trim())) {
-      setError("Please enter a valid phone number (7-15 digits).");
-      setSuccess("");
+      toast.error("Please enter a valid phone number (7-15 digits).");
       return;
     }
 
     if (!/\b\w+\b/.test(message.trim())) {
-      setError("Please enter at least one word in the message.");
-      setSuccess("");
+      toast.error("Please enter at least one word in the message.");
       return;
     }
 
     if (!agree) {
-      setError("Please agree to the privacy policy.");
-      setSuccess("");
+      toast.error("Please agree to the privacy policy.");
       return;
     }
-
-    setError("");
-    setSuccess("");
 
     try {
       const response = await fetch("http://127.0.0.1:8000/api/contact/", {
@@ -80,7 +75,7 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        setSuccess("Form submitted successfully!");
+        toast.success("Form submitted successfully!");
         setForm({
           firstName: "",
           lastName: "",
@@ -92,15 +87,16 @@ const ContactForm = () => {
         });
       } else {
         const data = await response.json();
-        setError(data?.error || "Something went wrong. Please try again.");
+        toast.error(data?.error || "Something went wrong. Please try again.");
       }
     } catch {
-      setError("Failed to submit. Please try again later.");
+      toast.error("Failed to submit. Please try again later.");
     }
   };
 
   return (
     <div className="contact-form-wrapper">
+      <ToastContainer position="top-right" />
       <div className="form-container">
         <div className="form-left">
           <div className="form-headings">
@@ -120,7 +116,6 @@ const ContactForm = () => {
                   onChange={handleChange}
                   required
                   aria-required="true"
-                  aria-describedby="firstNameError"
                 />
               </div>
               <div className="field">
@@ -133,7 +128,6 @@ const ContactForm = () => {
                   onChange={handleChange}
                   required
                   aria-required="true"
-                  aria-describedby="lastNameError"
                 />
               </div>
             </div>
@@ -148,7 +142,6 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 aria-required="true"
-                aria-describedby="emailError"
               />
             </div>
 
@@ -179,7 +172,6 @@ const ContactForm = () => {
                   onChange={handleChange}
                   required
                   aria-required="true"
-                  aria-describedby="phoneError"
                 />
               </div>
             </div>
@@ -194,7 +186,6 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 aria-required="true"
-                aria-describedby="messageError"
               ></textarea>
             </div>
 
@@ -211,17 +202,6 @@ const ContactForm = () => {
                 You agree to our <a href="#">privacy policy</a>.
               </label>
             </div>
-
-            {error && (
-              <div className="error" role="alert" aria-live="assertive">
-                {error}
-              </div>
-            )}
-            {success && (
-              <div className="success" role="status" aria-live="polite">
-                {success}
-              </div>
-            )}
 
             <button type="submit" className="btn-submit">
               Send Message

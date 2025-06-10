@@ -14,6 +14,7 @@ import DashboardLayout from './pages/DashboardLayout';
 import AdminContacts from './pages/AdminContacts';
 import AdminLoginPage from './pages/AdminLoginPage';
 import AdminDashboard from './pages/AdminDashboard';
+import AdminServiceInquiries from './pages/AdminServiceInquiries';
 
 function PrivateRoute({ children }) {
   const token = localStorage.getItem('adminToken');
@@ -72,6 +73,16 @@ function AppWrapper() {
             <PrivateRoute>
               <DashboardLayout>
                 <AdminContacts />
+              </DashboardLayout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/dashboard/service-inquiries"   // <-- new route here
+          element={
+            <PrivateRoute>
+              <DashboardLayout>
+                <AdminServiceInquiries />
               </DashboardLayout>
             </PrivateRoute>
           }

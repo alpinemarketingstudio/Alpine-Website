@@ -57,3 +57,19 @@ class ServiceInquiryCreateAPIView(generics.CreateAPIView):
     queryset = ServiceInquiry.objects.all()
     serializer_class = ServiceInquirySerializer
     permission_classes = [AllowAny]  # Anyone can submit service inquiries
+
+class ServiceInquiryListAPIView(generics.ListAPIView):
+    queryset = ServiceInquiry.objects.all().order_by('-submitted_at')
+    serializer_class = ServiceInquirySerializer
+    permission_classes = [IsAuthenticated]  # Only admin can view inquiries
+
+class ServiceInquiryDeleteAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def delete(self, request, pk):
+        try:
+            inquiry = ServiceInquiry.objects.get(pk=pk)
+            inquiry.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except ServiceInquiry.DoesNotExist:
+            return Response({"error": "Inquiry not found"}, status=status.HTTP_404_NOT_FOUND)
