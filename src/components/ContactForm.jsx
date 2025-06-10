@@ -19,7 +19,7 @@ const ContactForm = () => {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setForm({ ...form, [name]: type === "checkbox" ? checked : value });
+    setForm((prev) => ({ ...prev, [name]: type === "checkbox" ? checked : value }));
   };
 
   const handleSubmit = async (e) => {
@@ -30,32 +30,36 @@ const ContactForm = () => {
     // Validation
     if (!firstName.trim() || !lastName.trim() || !email.trim() || !phone.trim()) {
       setError("Please fill all required fields.");
+      setSuccess("");
       return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email.trim())) {
       setError("Please enter a valid email address.");
+      setSuccess("");
       return;
     }
 
     const phonePattern = /^[0-9]{7,15}$/;
     if (!phonePattern.test(phone.trim())) {
       setError("Please enter a valid phone number (7-15 digits).");
+      setSuccess("");
       return;
     }
 
     if (!/\b\w+\b/.test(message.trim())) {
       setError("Please enter at least one word in the message.");
+      setSuccess("");
       return;
     }
 
     if (!agree) {
       setError("Please agree to the privacy policy.");
+      setSuccess("");
       return;
     }
 
-    // Clear previous messages
     setError("");
     setSuccess("");
 
@@ -90,7 +94,7 @@ const ContactForm = () => {
         const data = await response.json();
         setError(data?.error || "Something went wrong. Please try again.");
       }
-    } catch (error) {
+    } catch {
       setError("Failed to submit. Please try again later.");
     }
   };
@@ -104,7 +108,7 @@ const ContactForm = () => {
             <p>Our friendly team would love to hear from you.</p>
           </div>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} noValidate>
             <div className="row">
               <div className="field">
                 <label htmlFor="firstName">First Name *</label>
@@ -112,9 +116,11 @@ const ContactForm = () => {
                   type="text"
                   name="firstName"
                   id="firstName"
-                  onChange={handleChange}
                   value={form.firstName}
+                  onChange={handleChange}
                   required
+                  aria-required="true"
+                  aria-describedby="firstNameError"
                 />
               </div>
               <div className="field">
@@ -123,9 +129,11 @@ const ContactForm = () => {
                   type="text"
                   name="lastName"
                   id="lastName"
-                  onChange={handleChange}
                   value={form.lastName}
+                  onChange={handleChange}
                   required
+                  aria-required="true"
+                  aria-describedby="lastNameError"
                 />
               </div>
             </div>
@@ -136,9 +144,11 @@ const ContactForm = () => {
                 type="email"
                 name="email"
                 id="email"
-                onChange={handleChange}
                 value={form.email}
+                onChange={handleChange}
                 required
+                aria-required="true"
+                aria-describedby="emailError"
               />
             </div>
 
@@ -150,6 +160,7 @@ const ContactForm = () => {
                   id="country"
                   value={form.country}
                   onChange={handleChange}
+                  aria-label="Country dialing code"
                 >
                   {countryCodes.map((c) => (
                     <option key={c.code} value={c.code}>
@@ -164,9 +175,11 @@ const ContactForm = () => {
                   type="tel"
                   name="phone"
                   id="phone"
-                  onChange={handleChange}
                   value={form.phone}
+                  onChange={handleChange}
                   required
+                  aria-required="true"
+                  aria-describedby="phoneError"
                 />
               </div>
             </div>
@@ -177,9 +190,11 @@ const ContactForm = () => {
                 name="message"
                 id="message"
                 rows="4"
-                onChange={handleChange}
                 value={form.message}
+                onChange={handleChange}
                 required
+                aria-required="true"
+                aria-describedby="messageError"
               ></textarea>
             </div>
 
@@ -190,20 +205,31 @@ const ContactForm = () => {
                 name="agree"
                 checked={form.agree}
                 onChange={handleChange}
+                aria-required="true"
               />
               <label htmlFor="policyCheck">
                 You agree to our <a href="#">privacy policy</a>.
               </label>
             </div>
 
-            {error && <div className="error">{error}</div>}
-            {success && <div className="success">{success}</div>}
+            {error && (
+              <div className="error" role="alert" aria-live="assertive">
+                {error}
+              </div>
+            )}
+            {success && (
+              <div className="success" role="status" aria-live="polite">
+                {success}
+              </div>
+            )}
 
-            <button type="submit">Send Message</button>
+            <button type="submit" className="btn-submit">
+              Send Message
+            </button>
           </form>
         </div>
 
-        <div className="form-right">
+        <div className="form-right" aria-hidden="true">
           <img src={flexImage} alt="Contact Visual" />
         </div>
       </div>
