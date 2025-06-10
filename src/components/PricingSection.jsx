@@ -15,11 +15,11 @@ export default function PricingSection() {
   const [formData, setFormData] = useState({
     full_name: '',
     email: '',
+    phone_code: '',
     phone: '',
     message: '',
   });
 
-  // Prevent body scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = showModal ? 'hidden' : 'auto';
     return () => (document.body.style.overflow = 'auto');
@@ -39,15 +39,23 @@ export default function PricingSection() {
     setIsSubmitting(true);
     const payload = {
       ...formData,
+      phone: `${formData.phone_code} ${formData.phone}`,
       service_category: selectedPlan.category,
       plan_title: selectedPlan.planTitle,
     };
+
     try {
       await axios.post('http://localhost:8000/api/service-inquiry/', payload);
       toast.success('🎉 Inquiry submitted successfully!');
-      setFormData({ full_name: '', email: '', phone: '', message: '' });
+      setFormData({
+        full_name: '',
+        email: '',
+        phone_code: '',
+        phone: '',
+        message: '',
+      });
       setShowModal(false);
-    } catch (error) {
+    } catch (err) {
       toast.error('❌ Submission failed. Try again!');
     } finally {
       setIsSubmitting(false);
@@ -102,60 +110,131 @@ export default function PricingSection() {
         ))}
       </div>
 
-      {showModal && selectedPlan && (
-        <div className="modal-overlay" onClick={handleOverlayClick}>
-          <div className="modal-content">
-            <h2>
-              Get Started with {selectedPlan.planTitle} ({selectedPlan.category})
-            </h2>
-            <form onSubmit={handleSubmit} className="modal-form">
-              <input
-                type="text"
-                name="full_name"
-                placeholder="Full Name"
-                value={formData.full_name}
-                onChange={handleChange}
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-              <input
-                type="text"
-                name="phone"
-                placeholder="Phone (optional)"
-                value={formData.phone}
-                onChange={handleChange}
-              />
-              <textarea
-                name="message"
-                placeholder="Tell us more about your needs"
-                value={formData.message}
-                onChange={handleChange}
-                rows={4}
-              ></textarea>
-              <div className="modal-actions">
-                <button type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
-                </button>
-                <button
-                  type="button"
-                  className="cancel-button"
-                  onClick={() => setShowModal(false)}
-                  disabled={isSubmitting}
-                >
-                  Cancel
-                </button>
-              </div>
-            </form>
+{showModal && selectedPlan && (
+  <div className="modal-overlay" onClick={handleOverlayClick}>
+    <div className="modal-content slide-in">
+      <h2>Get Started with {selectedPlan.planTitle} ({selectedPlan.category})</h2>
+      <form onSubmit={handleSubmit} className="modal-form">
+
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="first_name">First Name*</label>
+            <input
+              type="text"
+              name="first_name"
+              id="first_name"
+              value={formData.first_name || ''}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="last_name">Last Name*</label>
+            <input
+              type="text"
+              name="last_name"
+              id="last_name"
+              value={formData.last_name || ''}
+              onChange={handleChange}
+              required
+            />
           </div>
         </div>
-      )}
+
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="phone_code">Country Code</label>
+            <select
+              name="phone_code"
+              id="phone_code"
+              value={formData.phone_code}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select</option>
+              <option value="+1">+1 (US)</option>
+              <option value="+44">+44 (UK)</option>
+              <option value="+61">+61 (AU)</option>
+              <option value="+91">+91 (IN)</option>
+
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="phone">Phone Number*</label>
+            <input
+              type="text"
+              name="phone"
+              id="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="email">Email*</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="message">Message*</label>
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Tell us more about your needs"
+            value={formData.message}
+            onChange={handleChange}
+            rows={4}
+            required
+          ></textarea>
+        </div>
+
+   <div className="checkbox-row">
+  <label className="checkbox-container">
+    <input
+      type="checkbox"
+      name="agree"
+      checked={formData.agree || false}
+      onChange={(e) =>
+        setFormData({ ...formData, agree: e.target.checked })
+      }
+      required
+    />
+    <span className="checkmark"></span>
+    I agree to the <a href="#">terms and conditions</a>
+  </label>
+</div>
+
+
+
+        <div className="modal-actions">
+          <button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
+          </button>
+          <button
+            type="button"
+            className="cancel-button"
+            onClick={() => setShowModal(false)}
+            disabled={isSubmitting}
+          >
+            Cancel
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+)}
+
+
     </section>
   );
 }
