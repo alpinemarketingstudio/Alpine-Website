@@ -9,29 +9,33 @@ const ContactForm = () => {
     firstName: "",
     lastName: "",
     email: "",
+    phone_code: "",
     phone: "",
     message: "",
-    country: "+39",
     agree: false,
   });
 
-  // Remove error and success state, since we'll use toast
-  // const [error, setError] = useState("");
-  // const [success, setSuccess] = useState("");
-
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setForm((prev) => ({ ...prev, [name]: type === "checkbox" ? checked : value }));
+    setForm((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { firstName, lastName, email, phone, message, country, agree } = form;
+    const { firstName, lastName, email, phone_code, phone, message, agree } = form;
 
     // Validation
     if (!firstName.trim() || !lastName.trim() || !email.trim() || !phone.trim()) {
       toast.error("Please fill all required fields.");
+      return;
+    }
+
+    if (!phone_code) {
+      toast.error("Please select a country code.");
       return;
     }
 
@@ -68,7 +72,7 @@ const ContactForm = () => {
           last_name: lastName,
           email,
           phone,
-          country_code: country,
+          country_code: phone_code,
           message,
         }),
       });
@@ -79,9 +83,9 @@ const ContactForm = () => {
           firstName: "",
           lastName: "",
           email: "",
+          phone_code: "",
           phone: "",
           message: "",
-          country: "+39",
           agree: false,
         });
       } else {
@@ -145,17 +149,19 @@ const ContactForm = () => {
 
             <div className="row">
               <div className="field code">
-                <label htmlFor="country">Code</label>
+                <label htmlFor="phone_code">Country Code</label>
                 <select
-                  name="country"
-                  id="country"
-                  value={form.country}
+                  name="phone_code"
+                  id="phone_code"
+                  value={form.phone_code}
                   onChange={handleChange}
                   aria-label="Country dialing code"
+                  required
                 >
-                  {countryCodes.map((c) => (
-                    <option key={c.code} value={c.code}>
-                      {c.label}
+                  <option value="">Select code</option>
+                  {countryCodes.map(({ code, label }) => (
+                    <option key={code} value={code}>
+                      {label} ({code})
                     </option>
                   ))}
                 </select>
