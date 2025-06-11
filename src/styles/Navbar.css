@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kings&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 .custom-navbar {
-  background: #0b0b0b;
+  background: #010409 ;
   padding: 0.7rem 1rem;
   z-index: 1030;
 }
@@ -13,16 +15,16 @@
 
 .brand-text {
   color: white;
-  font-family: 'Lora', serif;
-  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   font-size: 1.1rem;
   white-space: nowrap;
 }
 
 .navbar-nav .nav-link {
   color: white !important;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300
 }
 
 .nav-animate {
@@ -45,6 +47,21 @@
 .nav-animate:hover::after,
 .nav-animate.active::after {
   width: 100%;
+}
+
+.btn-success {
+  background-color: #238636 !important;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 10px rgba(0, 196, 140, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-success:hover {
+  background-color:  #2b9b42 !important;
+  transform: scale(1.02);
 }
 
 .navbar-toggler {

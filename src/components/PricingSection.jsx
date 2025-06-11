@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import pricingData from '../data/pricingsection';
-import '../styles/PricingSection.css';
-import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState, useEffect } from "react";
+import pricingData from "../data/pricingsection";
+import countryCodes from "../data/countryCodes.js";
+import "../styles/PricingSection.css";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const categories = Object.keys(pricingData);
 
@@ -13,18 +14,18 @@ export default function PricingSection() {
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
-    first_name: '',
-    last_name: '',
-    email: '',
-    phone_code: '',
-    phone: '',
-    message: '',
+    first_name: "",
+    last_name: "",
+    email: "",
+    phone_code: "",
+    phone: "",
+    message: "",
     agree: false,
   });
 
   useEffect(() => {
-    document.body.style.overflow = showModal ? 'hidden' : 'auto';
-    return () => (document.body.style.overflow = 'auto');
+    document.body.style.overflow = showModal ? "hidden" : "auto";
+    return () => (document.body.style.overflow = "auto");
   }, [showModal]);
 
   const handleStartClick = (plan, category) => {
@@ -50,27 +51,27 @@ export default function PricingSection() {
     };
 
     try {
-      await axios.post('http://localhost:8000/api/service-inquiry/', payload);
-      toast.success('Inquiry submitted successfully!');
+      await axios.post("http://localhost:8000/api/service-inquiry/", payload);
+      toast.success("Inquiry submitted successfully!");
       setFormData({
-        first_name: '',
-        last_name: '',
-        email: '',
-        phone_code: '',
-        phone: '',
-        message: '',
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone_code: "",
+        phone: "",
+        message: "",
         agree: false,
       });
       setShowModal(false);
     } catch (err) {
-      toast.error('Submission failed. Try again!');
+      toast.error("Submission failed. Try again!");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const handleOverlayClick = (e) => {
-    if (e.target.classList.contains('modal-overlay')) {
+    if (e.target.classList.contains("modal-overlay")) {
       setShowModal(false);
     }
   };
@@ -80,16 +81,19 @@ export default function PricingSection() {
   return (
     <section id="pricing" className="pricing-section">
       <ToastContainer position="top-right" />
-      <h2 className="title">Unleash Your Brand’s Potential with Tailored Creative Solutions</h2>
+      <h2 className="title">
+        Unleash Your Brand’s Potential with Tailored Creative Solutions
+      </h2>
       <p className="subtitle">
-        Choose your service and explore premium packages designed to accelerate your success.
+        Choose your service and explore premium packages designed to accelerate
+        your success.
       </p>
 
       <div className="tabs">
         {categories.map((category) => (
           <button
             key={category}
-            className={`tab ${category === activeCategory ? 'active' : ''}`}
+            className={`tab ${category === activeCategory ? "active" : ""}`}
             onClick={() => setActiveCategory(category)}
           >
             {category}
@@ -102,15 +106,23 @@ export default function PricingSection() {
           <div key={plan.title} className="card">
             <h3>{plan.title}</h3>
             <p className="description">{plan.description}</p>
-            <p className="price">{plan.price} <span>/ project</span></p>
+            <p className="price">
+              {plan.price} <span>/ project</span>
+            </p>
             <ul className="features">
               {plan.features.map((feature, idx) => (
-                <li key={idx} className={feature.includes('❌') ? 'disabled' : 'enabled'}>
+                <li
+                  key={idx}
+                  className={feature.includes("❌") ? "disabled" : "enabled"}
+                >
                   {feature}
                 </li>
               ))}
             </ul>
-            <button className="cta-button" onClick={() => handleStartClick(plan, activeCategory)}>
+            <button
+              className="cta-button"
+              onClick={() => handleStartClick(plan, activeCategory)}
+            >
               Get Started Now
             </button>
           </div>
@@ -120,9 +132,11 @@ export default function PricingSection() {
       {showModal && selectedPlan && (
         <div className="modal-overlay" onClick={handleOverlayClick}>
           <div className="modal-content slide-in">
-            <h2>Get Started with {selectedPlan.planTitle} ({selectedPlan.category})</h2>
+            <h2>
+              Get Started with {selectedPlan.planTitle} ({selectedPlan.category}
+              )
+            </h2>
             <form onSubmit={handleSubmit} className="modal-form">
-
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="first_name">First Name*</label>
@@ -130,7 +144,7 @@ export default function PricingSection() {
                     type="text"
                     name="first_name"
                     id="first_name"
-                    value={formData.first_name || ''}
+                    value={formData.first_name || ""}
                     onChange={handleChange}
                     required
                   />
@@ -141,7 +155,7 @@ export default function PricingSection() {
                     type="text"
                     name="last_name"
                     id="last_name"
-                    value={formData.last_name || ''}
+                    value={formData.last_name || ""}
                     onChange={handleChange}
                     required
                   />
@@ -159,10 +173,11 @@ export default function PricingSection() {
                     required
                   >
                     <option value="">Select</option>
-                    <option value="+1">+1 (US)</option>
-                    <option value="+44">+44 (UK)</option>
-                    <option value="+61">+61 (AU)</option>
-                    <option value="+91">+91 (IN)</option>
+                    {countryCodes.map(({ code, label }) => (
+                      <option key={code} value={code}>
+                        {label}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div className="form-group">
@@ -214,14 +229,14 @@ export default function PricingSection() {
                     }
                     required
                   />
-                  <span className="checkmark"></span>
-                  I agree to the <a href="#">terms and conditions</a>
+                  <span className="checkmark"></span>I agree to the{" "}
+                  <a href="#">terms and conditions</a>
                 </label>
               </div>
 
               <div className="modal-actions">
                 <button type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
+                  {isSubmitting ? "Submitting..." : "Submit Inquiry"}
                 </button>
                 <button
                   type="button"
@@ -232,12 +247,10 @@ export default function PricingSection() {
                   Cancel
                 </button>
               </div>
-
             </form>
           </div>
         </div>
       )}
-
     </section>
   );
 }
