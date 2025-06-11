@@ -25,11 +25,7 @@ const Home = () => {
         {/* Overlay */}
         <div className="hero-overlay"></div>
 
-<<<<<<< HEAD
         {/* Centered Content */}
-=======
-        {/* Content */}
->>>>>>> c39e9cd860ff2ae447e4fb9b299235a309ccbde3
         <div className="hero-content-wrapper">
           <div className="hero-text text-white">
             <h1>

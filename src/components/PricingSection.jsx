@@ -32,7 +32,11 @@ export default function PricingSection() {
   };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -78,14 +82,12 @@ export default function PricingSection() {
 
   return (
     <section id="pricing" className="pricing-section">
-      <ToastContainer position="top-right" />
       <h2 className="title">
         Unleash Your Brand’s Potential with Tailored Creative Solutions
       </h2>
-      <h2 className="title">Unleash Your Brand’s Potential with Tailored Creative Solutions</h2>
+
       <p className="subtitle">
-        Choose your service and explore premium packages designed to accelerate
-        your success.
+        Choose your service and explore premium packages designed to accelerate your success.
       </p>
 
       <div className="tabs">
@@ -132,8 +134,7 @@ export default function PricingSection() {
         <div className="modal-overlay" onClick={handleOverlayClick}>
           <div className="modal-content slide-in">
             <h2>
-              Get Started with {selectedPlan.planTitle} ({selectedPlan.category}
-              )
+              Get Started with {selectedPlan.planTitle} ({selectedPlan.category})
             </h2>
             <form onSubmit={handleSubmit} className="modal-form">
               <div className="form-row">
@@ -143,7 +144,7 @@ export default function PricingSection() {
                     type="text"
                     name="first_name"
                     id="first_name"
-                    value={formData.first_name || ""}
+                    value={formData.first_name}
                     onChange={handleChange}
                     required
                   />
@@ -154,7 +155,7 @@ export default function PricingSection() {
                     type="text"
                     name="last_name"
                     id="last_name"
-                    value={formData.last_name || ""}
+                    value={formData.last_name}
                     onChange={handleChange}
                     required
                   />
@@ -172,11 +173,10 @@ export default function PricingSection() {
                     required
                   >
                     <option value="">Select</option>
-                    {countryCodes.map(({ code, label }) => (
-                      <option key={code} value={code}>
-                        {label}
-                      </option>
-                    ))}
+                    <option value="+1">+1 (US)</option>
+                    <option value="+44">+44 (UK)</option>
+                    <option value="+61">+61 (AU)</option>
+                    <option value="+91">+91 (IN)</option>
                   </select>
                 </div>
                 <div className="form-group">
@@ -222,14 +222,12 @@ export default function PricingSection() {
                   <input
                     type="checkbox"
                     name="agree"
-                    checked={formData.agree || false}
-                    onChange={(e) =>
-                      setFormData({ ...formData, agree: e.target.checked })
-                    }
+                    checked={formData.agree}
+                    onChange={handleChange}
                     required
                   />
-                  <span className="checkmark"></span>I agree to the{" "}
-                  <a href="#">terms and conditions</a>
+                  <span className="checkmark"></span>
+                  I agree to the <a href="#">terms and conditions</a>
                 </label>
               </div>
 
