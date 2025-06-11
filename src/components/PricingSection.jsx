@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { countryCodes } from '../data/countryCode.js';
 import pricingData from '../data/pricingsection';
 import '../styles/PricingSection.css';
 import axios from 'axios';
@@ -170,15 +171,18 @@ export default function PricingSection() {
                     id="phone_code"
                     value={formData.phone_code}
                     onChange={handleChange}
+                    aria-label="Country dialing code"
                     required
                   >
-                    <option value="">Select</option>
-                    <option value="+1">+1 (US)</option>
-                    <option value="+44">+44 (UK)</option>
-                    <option value="+61">+61 (AU)</option>
-                    <option value="+91">+91 (IN)</option>
+                    <option value="">Select code</option>
+                    {countryCodes.map(({ code, label }) => (
+                      <option key={code} value={code}>
+                        {label} ({code})
+                      </option>
+                    ))}
                   </select>
                 </div>
+
                 <div className="form-group">
                   <label htmlFor="phone">Phone Number*</label>
                   <input
