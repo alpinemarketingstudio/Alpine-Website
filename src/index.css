@@ -3,10 +3,6 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 20px;
 }
 
 .hero-background-video {
@@ -32,10 +28,15 @@
 .hero-content-wrapper {
   position: relative;
   z-index: 3;
-  text-align: center;
+  height: 100vh;
   max-width: 1200px;
-  width: 100%;
-  padding: 80px 20px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   animation: fadeInUp 1s ease-out forwards;
   opacity: 0;
 }
@@ -50,6 +51,8 @@
 .hero-text p {
   font-size: 1.1rem;
   color: #ddd;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* CTA Button */
@@ -81,16 +84,19 @@
   }
 }
 
-/* Responsive Padding */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .hero-content-wrapper {
-    padding: 60px 10px;
+  .hero-text h1 {
+    font-size: 2rem;
   }
-}
 
-@media (max-width: 480px) {
-  .hero-content-wrapper {
-    padding: 40px 10px;
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 12px 24px;
+    font-size: 0.95rem;
   }
 }
 
