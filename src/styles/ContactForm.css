@@ -90,6 +90,7 @@ form {
 }
 
 .field input:focus,
+
 .field select:focus,
 .field textarea:focus {
   border-color: #2ecc71;

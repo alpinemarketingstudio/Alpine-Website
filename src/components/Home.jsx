@@ -1,5 +1,6 @@
 import React from "react";
 import heroVideo from "../assets/vid1.mp4";
+import { GoArrowRight } from "react-icons/go";
 
 const Home = () => {
   const scrollToSection = () => {
@@ -32,14 +33,20 @@ const Home = () => {
               Elevate Your Brand with <br />
               Stunning Visuals & Smart Digital Strategy
             </h1>
-            <p className="mt-3 text-light">
-              We specialize in photography, videography, web development,
-              UI/UX design, and result-driven marketing. At Alpine Marketing
-              Studio, we don’t just build brands — we craft experiences that
-              captivate, convert, and grow your audience.
+            <p className="mt-3 ">
+              We blend stunning visuals with smart digital strategy — offering
+              <span>
+                {" "}
+                Photography, Videography, Web development, UI/UX design,
+              </span>{" "}
+              and
+              <span> Marketing</span> that delivers results. At{" "}
+              <span>Alpine Marketing Studio,</span> we turn your brand into a
+              story your audience remembers.
             </p>
+            
             <button className="cta-button mt-4" onClick={scrollToSection}>
-              Get Started
+              Get Started<i className="bi bi-arrow-right ms-1"></i>
             </button>
           </div>
         </div>
