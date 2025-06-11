@@ -1,9 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Poppins:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Poppins:wght@400;500&display=swap");
 
 .contact-form-wrapper {
-  background: linear-gradient(to right, #dbeafe, #ffffff);
-  font-family: 'Poppins', sans-serif;
-  padding: 60px 20px;
+  background: white;
+  font-family: var(--font-title);
+  height: 100vh; /* 100% of the viewport height */
+  width: 100%;
+  padding-top: 4rem;
+  
 }
 
 .form-container {
@@ -11,15 +14,18 @@
   display: flex;
   margin: 0 auto;
   gap: 40px;
-  background: white;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  background: #f3f3f5;
+  margin-top: 4rem;
+
 }
 
 .form-left {
   flex: 1;
   padding: 40px;
+  border-radius: 16px;
+
 }
 
 .form-right {
@@ -27,7 +33,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #eff6ff;
+  background: #ffffff;
   padding: 30px;
 }
 
@@ -39,7 +45,6 @@
 }
 
 .form-headings h2 {
-  font-family: 'Lora', serif;
   font-size: 2rem;
   color: black;
   margin-bottom: 10px;
@@ -71,6 +76,21 @@ form {
   width: 100%;
   margin-bottom: 20px;
 }
+.field.code select {
+  padding-right: 30px; /* Ample space for icon */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23838383'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center; /* 12px from right - keeps icon left but not touching edge */
+  background-size: 18px; /* Larger size */
+  padding-left: 12px;
+}
+
+.field.phone input {
+  padding-left: 12px;
+}
 
 .field label {
   font-weight: 500;
@@ -83,36 +103,46 @@ form {
 .field select,
 .field textarea {
   padding: 12px 14px;
-  border-radius: 8px;
-  border: 1px solid #bde6c6;;
-  background: #fff;
+  border: none;
+  background-color: #ffffff;
+  border-radius: 50px;
+  font-size: 13px;
+ color: black;
+ font-weight: 100;
   transition: border 0.3s ease;
 }
+#message{
+  border-radius: 20px;
+}
+#phone_code{
+  color: #838383;
+
+}
+
 
 .field input:focus,
-
 .field select:focus,
 .field textarea:focus {
   border-color: #2ecc71;
   outline: none;
+
 }
 
 .form-check {
   display: flex;
   align-items: center;
-  gap: 10px;
   margin-bottom: 20px;
   font-size: 0.9rem;
-  color: black;
+  color: #838383;
 }
 
 .form-check a {
-  color: blue;
+  color: rgb(24, 24, 24);
   text-decoration: underline;
 }
 
 button[type="submit"] {
-  background: #2ecc71;
+  background: #28a745;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -152,3 +182,153 @@ button[type="submit"]:hover {
     flex-direction: column;
   }
 }
+
+/* Custom checkbox styling */
+.custom-checkbox {
+  -webkit-appearance: none; /* Remove default style */
+  -moz-appearance: none;
+  appearance: none;
+  width: 16px; /* Smaller size */
+  height: 16px;
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 3px; /* Slightly rounded corners */
+  outline: none;
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+  margin-right: 8px;
+  background-color: #ffffff;
+}
+
+/* Green tick when checked */
+.custom-checkbox:checked {
+  background-color: #28a745; /* Green background */
+  border-color: #28a745;
+}
+
+/* Custom checkmark (white tick) */
+.custom-checkbox:checked::after {
+  content: "✓";
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Hover effect */
+.custom-checkbox:hover {
+  border-color: #28a745;
+}
+
+
+.creative-message h1{
+font-size: 55px;
+}
+.lead{
+  font-size: 55px;
+  color: #28a745;
+  font-weight:500;
+
+}
+.description p{ 
+color: #505050;
+}
+.description-2 p{ 
+color: #505050;
+}
+
+
+.contact-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  width: fit-content;
+}
+
+.contact-link {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.contact-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #28a745; /* Green underline */
+  transition: width 0.3s ease-out;
+}
+
+.contact-item:hover .contact-link::after {
+  width: 100%;
+}
+
+.contact-icon {
+  font-size: 1.2rem;
+  color: #28a745; /* Matching green color */
+  /* No transform transitions */
+}
+.form-right {
+  background: linear-gradient(
+    -65deg,  /* Sharper angle for more contrast */
+    #fcfffd,  /* Bright white-green */
+    #c8f5d2,  /* Vibrant mint */
+    #a0e8b4   /* Light lime */
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 6s ease infinite; /* Faster animation */
+  box-shadow: 
+    inset 0 0 80px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(200, 245, 210, 0.3); /* Outer glow */
+}
+
+@keyframes gradientBG {
+  0% { 
+    background-position: 0% 20%;  /* Start higher */
+    opacity: 0.95;
+  }
+  50% { 
+    background-position: 100% 80%;  /* Diagonal sweep */
+    opacity: 1;
+  }
+  100% { 
+    background-position: 0% 20%;
+    opacity: 0.95;
+  }
+}/* Amazon Prime-style arrow positioning */
+.prime-arrow {
+  position: absolute;
+  top: 3rem;
+  right: 4rem; /* Positions the arrow in top-right but pointing left */
+  z-index: 10;
+  opacity: 0.8;
+  transition: transform 0.2s ease;
+}
+
+.prime-arrow:hover {
+  transform: translateX(-5px); /* Slight movement on hover */
+  opacity: 1;
+}
+.form-right {
+  position: relative; /* Needed for absolute positioning */
+}
+
+.form-right {
+  position: relative;
+  /* Your existing styles */
+}
+
+
