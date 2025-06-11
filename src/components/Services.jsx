@@ -28,7 +28,7 @@ const Services = () => {
   return (
     <section id="services" className="services-section">
       <h2 className="section-title">
-        <span className="highlight-black">Comprehensive Creative Services to Elevate Your Brand</span>
+        Comprehensive <span>Creative Services</span> to <span>Elevate Your Brand</span>
       </h2>
       <div className="services-container">
         {servicesData.map((service, index) => (
