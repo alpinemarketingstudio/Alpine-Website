@@ -17,7 +17,17 @@ const Footer = () => {
         </a>
       </div>
 
-      <p id="contact-phone" className="footer-phone">📞 <a href="tel:+919191919199">+91 9191919199</a></p>
+      <p id="contact-phone" className="footer-phone">
+  <i className="fab fa-whatsapp" style={{ color: 'green', marginRight: '8px' }}></i>
+  <a
+    href="https://wa.me/919191919199?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    +91-9876543211
+  </a>
+</p>
+
       <p className="footer-email">📧 <a href="mailto:alpinemarketingstudio@gmail.com">alpinemarketingstudio@gmail.com</a></p>
       <p className="footer-copy">&copy; {new Date().getFullYear()} Alpine Marketing Studio. All rights reserved.</p>
     </footer>

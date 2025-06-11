@@ -1,5 +1,5 @@
 import React from "react";
-import heroVideo from "../assets/vid2.mp4";
+import heroVideo from "../assets/vid1.mp4";
 
 const Home = () => {
   const scrollToSection = () => {
@@ -25,7 +25,11 @@ const Home = () => {
         {/* Overlay */}
         <div className="hero-overlay"></div>
 
+<<<<<<< HEAD
         {/* Centered Content */}
+=======
+        {/* Content */}
+>>>>>>> c39e9cd860ff2ae447e4fb9b299235a309ccbde3
         <div className="hero-content-wrapper">
           <div className="hero-text text-white">
             <h1>

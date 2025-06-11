@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { countryCodes } from "../data/countryCode.js";
 import flexImage from "../assets/flex1.jpg";
 import "../styles/ContactForm.css";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const ContactForm = () => {
   const [form, setForm] = useState({
@@ -96,7 +95,6 @@ const ContactForm = () => {
 
   return (
     <div className="contact-form-wrapper">
-      <ToastContainer position="top-right" />
       <div className="form-container">
         <div className="form-left">
           <div className="form-headings">
