@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
-import pricingData from "../data/pricingsection";
-import countryCodes from "../data/countryCodes.js";
-import "../styles/PricingSection.css";
-import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useState, useEffect } from 'react';
+import pricingData from '../data/pricingsection';
+import '../styles/PricingSection.css';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const categories = Object.keys(pricingData);
 
@@ -84,6 +82,7 @@ export default function PricingSection() {
       <h2 className="title">
         Unleash Your Brand’s Potential with Tailored Creative Solutions
       </h2>
+      <h2 className="title">Unleash Your Brand’s Potential with Tailored Creative Solutions</h2>
       <p className="subtitle">
         Choose your service and explore premium packages designed to accelerate
         your success.
