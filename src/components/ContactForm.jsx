@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { countryCodes } from "../data/countryCode.js";
-import flexImage from "../assets/flex1.jpg";
+
 import "../styles/ContactForm.css";
 import { toast } from "react-toastify";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
