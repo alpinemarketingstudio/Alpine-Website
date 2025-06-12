@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 .custom-navbar {
-  background: #010409 ;
+  background: #010409;
   padding: 0.7rem 1rem;
   z-index: 1030;
   border-bottom-left-radius: 60px;
@@ -37,7 +37,6 @@
   background-color: #000 !important;
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
-
 .brand-text {
   color: white;
   font-family: 'Montserrat', sans-serif;
@@ -46,10 +45,11 @@
   white-space: nowrap;
 }
 
+
 .navbar-nav .nav-link {
   color: white !important;
   font-family: 'Inter', sans-serif;
-  font-weight: 300
+  font-weight: 300;
 }
 
 .nav-animate {
@@ -74,9 +74,10 @@
   width: 100%;
 }
 
+
 .btn-success {
   background-color: inherit;
-  border: 0.1px #ffffff ;
+  border: none;
   color: white;
   font-weight: 240;
   font-family: 'Poppins', sans-serif;
@@ -86,9 +87,10 @@
 }
 
 .btn-success:hover {
-  background-color:#28a745 ;
+  background-color: #28a745;
   transform: scale(1.02);
 }
+
 
 .navbar-toggler {
   margin-left: auto;
@@ -102,11 +104,11 @@
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4h30v2H0zM0 14h30v2H0zM0 24h30v2H0z'/%3E%3C/svg%3E");
 }
 
-
+/* Mobile Styles */
 @media (max-width: 991px) {
   .navbar-collapse {
     position: absolute;
-    top: 100%;
+    top: 95%; /* decreased top margin for mobile */
     left: 0;
     width: 100%;
     background: #0b0b0b;

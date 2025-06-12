@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 import "../styles/Navbar.css";
 
 const navItems = [
-  { name: "Home", href: "#home" }, // For brand
+  { name: "Home", href: "#home" },
   { name: "Services", href: "#services" },
   { name: "Pricing", href: "#pricing" },
   { name: "About", href: "#about" },
@@ -20,22 +20,45 @@ function Navbar() {
   };
 
   const handleContactClick = () => {
-    const contactSection = document.getElementById("contact"); // Assuming your ContactForm has id="contact"
+    const contactSection = document.getElementById("contact");
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth", block: "center" });
     }
     setMenuOpen(false);
-    setActiveNav(null); // Remove underline from all nav links
+    setActiveNav(null);
+  };
+
+  const handleNavClick = (name) => {
+    setMenuOpen(false);
+    setActiveNav(name === "Home" ? null : name);
   };
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
+
       const homeSection = document.getElementById("home");
       if (homeSection) {
         const homeHeight = homeSection.offsetHeight;
         setIsHome(scrollY < homeHeight - 100);
       }
+
+      let currentSection = null;
+      navItems.forEach((item) => {
+        if (item.name !== "Home") {
+          const section = document.querySelector(item.href);
+          if (section) {
+            const sectionTop = section.offsetTop - 150; // buffer for navbar height
+            const sectionHeight = section.offsetHeight;
+
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+              currentSection = item.name;
+            }
+          }
+        }
+      });
+
+      setActiveNav(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -43,15 +66,6 @@ function Navbar() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const handleNavClick = (name) => {
-    setMenuOpen(false);
-    if (name === "Home") {
-      setActiveNav(null);
-    } else {
-      setActiveNav(name);
-    }
-  };
 
   return (
     <nav
