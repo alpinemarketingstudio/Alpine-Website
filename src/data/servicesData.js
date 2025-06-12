@@ -1,40 +1,34 @@
-// src/data/servicesData.js
-import vid1 from "../assets/vid1.mp4";
-import img2 from "../assets/img2.jpg";
-import img3 from "../assets/img3.jpg";
-import img4 from "../assets/img4.jpg";
-import img5 from "../assets/img5.jpg";
-
+// src/data/ServicesData.js
 const servicesData = [
   {
-    title: "Cinematic Videography",
-    desc: "Transform your brand narrative with compelling visuals and cinematic storytelling. We produce emotionally rich, high-impact videos that elevate your marketing campaigns, strengthen your brand identity, and connect deeply with your target audience",
+    title: "Videography",
+    desc: "Capture your story in motion with cinematic finesse. Our videography team crafts compelling visuals that resonate emotionally, from brand campaigns to social reels — every frame tailored to elevate your vision.",
+    media: "vid1.mp4",
     mediaType: "video",
-    media: vid1,
   },
   {
-    title: "Creative Photography",
-    desc: "Every frame tells a story. Our expert photography team captures the perfect shot to showcase your products, people, or services. Whether it’s lifestyle, commercial, or studio photography, we deliver timeless visuals that build trust and drive engagement.",
+    title: "Photography",
+    desc: "Every photograph tells a story. From styled shoots to candid captures, our photography service brings moments to life with clarity, emotion, and a touch of timeless elegance.",
+    media: "img2.jpg",
     mediaType: "image",
-    media: img2,
   },
   {
-    title: "Web Design & Development",
-    desc: "Your website is your digital storefront. We blend sleek design with robust development to create responsive, SEO-optimized, and high-performing websites that reflect your brand’s voice and help convert visitors into loyal customers.",
+    title: "Web Design",
+    desc: "We don’t just build websites — we shape digital experiences. Our responsive, aesthetic-first designs blend usability with art, ensuring your online presence looks sharp across every screen.",
+    media: "img3.jpg",
     mediaType: "image",
-    media: img3,
+  },
+  {
+    title: "Marketing",
+    desc: "Strategic, creative, effective. From digital campaigns to branding rollouts, our marketing team crafts narratives that cut through noise, connect with audiences, and convert engagement into results.",
+    media: "img5.jpg",
+    mediaType: "image",
   },
   {
     title: "UI/UX Design",
-    desc: "Great design is invisible yet unforgettable. Our UI/UX experts craft intuitive, user-focused interfaces that not only look stunning but also provide smooth navigation and exceptional usability across all platforms and devices",
+    desc: "User-first design meets visual storytelling. We blend simplicity and style to create intuitive interfaces that feel natural, look elegant, and keep your users coming back.",
+    media: "img4.jpg",
     mediaType: "image",
-    media: img4,
-  },
-  {
-    title: "Digital Marketing & Strategy",
-    desc: "Reach your audience with precision and creativity. From SEO to social media, PPC to email automation, we develop data-driven strategies that amplify your brand's reach, engage your audience, and drive measurable business results.",
-    mediaType: "image",
-    media: img5,
   },
 ];
 
