@@ -3,7 +3,7 @@ const servicesData = [
   {
     title: "Videography",
     desc: "Capture your story in motion with cinematic finesse. Our videography team crafts compelling visuals that resonate emotionally, from brand campaigns to social reels — every frame tailored to elevate your vision.",
-    media: "vid1.mp4",
+    media: "vid2.mp4",
     mediaType: "video",
   },
   {

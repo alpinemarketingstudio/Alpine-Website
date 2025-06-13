@@ -1,47 +1,45 @@
-import React, { useEffect, useRef } from 'react';
-import features from '../data/whyFeatures';
-import '../styles/WhyAlpine.css';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "../styles/WhyAlpine.css";
+import features from "../data/whyFeatures";
 
 export default function WhyAlpine() {
-  const cardsRef = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    cardsRef.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-  }, []);
-
   return (
-    <section id="why-alpine" className="why-alpine-section">
-      <div className="why-alpine-content">
+    <section className="why-alpine-section">
+      <div className="why-alpine-container">
         <h2 className="why-heading">
-          Why Only Alpine?
+          <span className="white-text">Why Only </span>
+          <span className="green-text">Alpine</span>
+          <span className="white-text">? </span>
         </h2>
-        <div className="features-grid">
+
+        <Swiper
+          loop={true}
+          spaceBetween={30}
+          navigation={true}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            575: { slidesPerView: 1 },
+            767: { slidesPerView: 1.2 },
+            911: { slidesPerView: 2 },
+            1199: { slidesPerView: 2 },
+            1400: { slidesPerView: 3 },
+          }}
+          modules={[Navigation]}
+          className="feature-swiper"
+        >
           {features.map((feature, index) => (
-            <div
-              key={index}
-              className="feature-card fade-up"
-              ref={(el) => (cardsRef.current[index] = el)}
-              style={{ transitionDelay: `${index * 0.2}s` }}
-            >
-              <h3>{feature.title}</h3>
-              <p>{feature.description}</p>
-            </div>
+            <SwiperSlide key={index}>
+              <div className="feature-card">
+                <h3>{feature.title}</h3>
+                <p>{feature.description}</p>
+              </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );

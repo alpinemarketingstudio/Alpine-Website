@@ -1,27 +1,43 @@
 const features = [
   {
-    title: 'All-in-One Creative Agency',
-    description: 'From photography and videography to websites and social media, everything your brand needs under one roof.',
+    title: "Smart Pricing",
+    description: "Enjoy affordable packages carefully designed to give you maximum value without stretching your budget.",
   },
   {
-    title: 'Affordable Pricing',
-    description: 'Get top-tier service without burning your budget. Transparent pricing with no hidden fees.',
+    title: "Creative Power",
+    description: "Our creative team brings fresh, original ideas that make your brand stand out in a crowded market.",
   },
   {
-    title: 'Boost Your Online Presence',
-    description: 'We help you stand out with stunning websites, effective ads, and engaging social media strategies.',
+    title: "Proven Success",
+    description: "We deliver measurable results that help your business grow and achieve real impact.",
   },
   {
-    title: 'Ongoing Support',
-    description: 'We don’t disappear after delivery. We’re here for updates, support, and long-term growth.',
-  },
-   {
-    title: "Multi-device Access",
-    description: "Seamlessly use our tools and resources across all your devices without interruptions."
+    title: "On-Time Delivery",
+    description: "We respect your timeline and guarantee prompt delivery of every project milestone.",
   },
   {
-    title: "High-Res Downloads",
-    description: "Download your projects in high resolution for superior print and digital use."
+    title: "Reliable Support",
+    description: "Our team is always available to provide timely assistance and resolve any concerns.",
+  },
+  {
+    title: "Tailored Solutions",
+    description: "We customize our services to perfectly match your unique brand goals and industry needs.",
+  },
+  {
+    title: "Expert Team",
+    description: "Work with highly skilled professionals who are passionate about bringing your vision to life.",
+  },
+  {
+    title: "Cutting-Edge Tools",
+    description: "We leverage the latest technology and tools to ensure your project is innovative and effective.",
+  },
+  {
+    title: "Clear Communication",
+    description: "Stay informed with transparent updates and easy collaboration throughout the project.",
+  },
+  {
+    title: "Customer Focus",
+    description: "Your satisfaction is our top priority—we go the extra mile to exceed your expectations.",
   },
 ];
 
