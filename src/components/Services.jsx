@@ -2,7 +2,7 @@ import React from "react";
 import servicesData from "../data/ServicesData";
 
 // Import assets
-import videography from "../assets/vid2.mp4";
+import videography from "../assets/vid1.mp4";
 import photography from "../assets/img2.jpg";
 import webdesign from "../assets/img3.jpg";
 import marketing from "../assets/img5.jpg";
@@ -11,7 +11,7 @@ import uiux from "../assets/img4.jpg";
 import "../styles/Services.css";
 
 const mediaMap = {
-  "vid2.mp4": videography,
+  "vid1.mp4": videography,
   "img2.jpg": photography,
   "img3.jpg": webdesign,
   "img5.jpg": marketing,
