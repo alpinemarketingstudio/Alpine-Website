@@ -38,7 +38,7 @@ const Services = () => {
       <div className="services-grid">
         {servicePairs.map((pair, idx) => (
           <div key={idx} className="services-row">
-            {pair.map((service, i) => {
+            {pair.map((service) => {
               const mediaSrc = mediaMap[service.media];
 
               return (
