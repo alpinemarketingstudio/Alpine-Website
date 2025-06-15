@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
 import "../styles/WhyAlpine.css";
 import features from "../data/whyFeatures";
 
 export default function WhyAlpine() {
+  const swiperRef = useRef(null);
+  const pauseTimerRef = useRef(null);
+
+  const handlePause = () => {
+    pauseTimerRef.current = setTimeout(() => {
+      swiperRef.current?.autoplay?.stop();
+    }, 200); // smooth delay before pausing
+  };
+
+  const handleResume = () => {
+    clearTimeout(pauseTimerRef.current);
+    swiperRef.current?.autoplay?.start();
+  };
+
   return (
     <section className="why-alpine-section">
       <div className="why-alpine-container">
@@ -19,7 +32,11 @@ export default function WhyAlpine() {
         <Swiper
           loop={true}
           spaceBetween={30}
-          navigation={true}
+          speed={3000}
+          autoplay={{
+            delay: 0,
+            disableOnInteraction: false,
+          }}
           breakpoints={{
             0: { slidesPerView: 1 },
             575: { slidesPerView: 1 },
@@ -28,12 +45,21 @@ export default function WhyAlpine() {
             1199: { slidesPerView: 2 },
             1400: { slidesPerView: 3 },
           }}
-          modules={[Navigation]}
-          className="feature-swiper"
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          modules={[Autoplay]}
+          className="feature-swiper moving-swiper"
         >
           {features.map((feature, index) => (
             <SwiperSlide key={index}>
-              <div className="feature-card">
+              <div
+                className="feature-card"
+                onMouseEnter={handlePause}
+                onMouseLeave={handleResume}
+                onTouchStart={handlePause}
+                onTouchEnd={handleResume}
+              >
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
               </div>
