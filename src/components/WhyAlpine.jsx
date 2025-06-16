@@ -18,25 +18,26 @@ export default function WhyAlpine() {
 
         <Swiper
           loop={true}
-          spaceBetween={30}
+          centeredSlides={true}
+          spaceBetween={20}
+          slidesPerView={1.2}
           navigation={true}
           breakpoints={{
-            0: { slidesPerView: 1 },
-            575: { slidesPerView: 1 },
-            767: { slidesPerView: 1.2 },
-            911: { slidesPerView: 2 },
-            1199: { slidesPerView: 2 },
-            1400: { slidesPerView: 3 },
+            640: { slidesPerView: 1.5 },
+            768: { slidesPerView: 2.2 },
+            1024: { slidesPerView: 3 }
           }}
           modules={[Navigation]}
           className="feature-swiper"
         >
           {features.map((feature, index) => (
             <SwiperSlide key={index}>
-              <div className="feature-card">
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </div>
+              {({ isActive }) => (
+                <div className={`feature-card ${isActive ? 'active' : ''}`}>
+                  <h3>{feature.title}</h3>
+                  <p>{feature.description}</p>
+                </div>
+              )}
             </SwiperSlide>
           ))}
         </Swiper>
