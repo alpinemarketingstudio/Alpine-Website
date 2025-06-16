@@ -13,7 +13,7 @@ const servicesData = [
     mediaType: "image",
   },
   {
-    title: "Web Design",
+    title: "Graphics Designing",
     desc: "We don’t just build websites — we shape digital experiences. Our responsive, aesthetic-first designs blend usability with art, ensuring your online presence looks sharp across every screen.",
     media: "img3.jpg",
     mediaType: "image",
