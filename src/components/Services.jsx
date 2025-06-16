@@ -1,12 +1,13 @@
 import React from "react";
 import servicesData from "../data/ServicesData";
+import { FiArrowRight } from "react-icons/fi";
 
 // Import assets
 import videography from "../assets/vid3.mp4";
 import photography from "../assets/p1.jpg";
-import graphics from "../assets/p2.jpeg";
-import marketing from "../assets/img5.jpg";
-import uiux from "../assets/img4.jpg";
+import graphics from "../assets/p3.jpeg";
+import webdev from "../assets/p5.jpg";
+import uiux from "../assets/p4.jpeg";
 
 import "../styles/Services.css";
 
@@ -14,7 +15,7 @@ const mediaMap = {
   "vid1.mp4": videography,
   "img2.jpg": photography,
   "img3.jpg": graphics,
-  "img5.jpg": marketing,
+  "img5.jpg": webdev,
   "img4.jpg": uiux,
 };
 
@@ -52,7 +53,7 @@ const Services = () => {
                       : service.title === "Web Design"
                       ? "smaller"
                       : "standard"
-                  }`}
+                  } ${service.title === "Graphics Designing" ? "portrait" : ""}`}
                 >
                   {service.mediaType === "video" ? (
                     <video
@@ -71,9 +72,21 @@ const Services = () => {
                     />
                   )}
 
-                  <div className={`overlay ${service.title === "UI/UX Design" ? "animated-uiux" : ""}`}>
+                  <div
+                    className={`overlay ${
+                      service.title === "UI/UX Design" ? "animated-uiux" : ""
+                    }`}
+                  >
                     <h3>{service.title}</h3>
                     <p>{service.desc}</p>
+
+                    {/* Read More button */}
+                    <a href="">
+                    <div className="read-more">
+                      <span>Read More</span>
+                      <FiArrowRight size={14} />
+                    </div>
+                    </a>
                   </div>
                 </div>
               );

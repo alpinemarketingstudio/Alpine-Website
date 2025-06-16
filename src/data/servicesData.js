@@ -2,31 +2,31 @@
 const servicesData = [
   {
     title: "Videography",
-    desc: "Capture your story in motion with cinematic finesse. Our videography team crafts compelling visuals that resonate emotionally, from brand campaigns to social reels — every frame tailored to elevate your vision.",
+    desc: "We capture the flavor, feel, and essence of your brand through cinematic videos crafted to showcase the best in food, products, and hospitality. Every frame highlights quality, atmosphere, and story, bringing your brand’s excellence vividly to life.",
     media: "vid1.mp4",
     mediaType: "video",
   },
   {
     title: "Photography",
-    desc: "Every photograph tells a story. From styled shoots to candid captures, our photography service brings moments to life with clarity, emotion, and a touch of timeless elegance.",
+    desc: "Our photography reveals the true spirit and detail of your brand, expertly capturing food, products, and hospitality with clarity and style. Each image conveys quality, ambiance, and story, showcasing your brand’s unique excellence.",
     media: "img2.jpg",
     mediaType: "image",
   },
   {
     title: "Graphics Designing",
-    desc: "We don’t just build websites — we shape digital experiences. Our responsive, aesthetic-first designs blend usability with art, ensuring your online presence looks sharp across every screen.",
+    desc: "We design visuals that connect. From eye-catching social media posts to polished posters, flyers, and cards — our graphic design service brings your brand to life with creativity, clarity, and impact.",
     media: "img3.jpg",
     mediaType: "image",
   },
   {
-    title: "Marketing",
-    desc: "Strategic, creative, effective. From digital campaigns to branding rollouts, our marketing team crafts narratives that cut through noise, connect with audiences, and convert engagement into results.",
+    title: "Web/software Development",
+    desc: "We craft modern, responsive websites and powerful software tailored for today’s businesses. From sleek e-commerce platforms to custom tools that streamline your workflow, we turn ideas into fast, functional digital solutions that grow with you.",
     media: "img5.jpg",
     mediaType: "image",
   },
   {
-    title: "UI/UX Design",
-    desc: "User-first design meets visual storytelling. We blend simplicity and style to create intuitive interfaces that feel natural, look elegant, and keep your users coming back.",
+    title: "Digital Marketing",
+    desc: "We drive growth through data-backed digital marketing — from social media to targeted campaigns, we use modern strategies and tools to boost visibility, engagement, and conversions fast.",
     media: "img4.jpg",
     mediaType: "image",
   },
