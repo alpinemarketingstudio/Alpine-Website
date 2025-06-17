@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Sling as Hamburger } from "hamburger-react"; // import hamburger-react component
 import logo from "../assets/logo.png";
 import "../styles/Navbar.css";
 
@@ -48,7 +49,7 @@ function Navbar() {
         if (item.name !== "Home") {
           const section = document.querySelector(item.href);
           if (section) {
-            const sectionTop = section.offsetTop - 150; // buffer for navbar height
+            const sectionTop = section.offsetTop - 150;
             const sectionHeight = section.offsetHeight;
 
             if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
@@ -83,14 +84,16 @@ function Navbar() {
           <span className="brand-text">Alpine Marketing Studio</span>
         </a>
 
-        <button
-          className="navbar-toggler bg-success"
-          type="button"
-          onClick={handleToggle}
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        {/* Replace your button with Hamburger from hamburger-react */}
+        <div className="d-lg-none">
+          <Hamburger
+            toggled={menuOpen}
+            toggle={setMenuOpen}
+            size={24}           // smaller size if you want (default 24)
+            color="#fff"        // white color for lines
+            duration={0.4}      // animation speed
+          />
+        </div>
 
         <div
           className={`collapse navbar-collapse justify-content-center ${

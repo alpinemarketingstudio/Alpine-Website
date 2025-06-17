@@ -35,6 +35,7 @@
   background-color: #000 !important;
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
+
 .brand-text {
   color: white;
   font-family: 'Montserrat', sans-serif;
@@ -42,7 +43,6 @@
   font-size: 1.1rem;
   white-space: nowrap;
 }
-
 
 .navbar-nav .nav-link {
   color: white !important;
@@ -53,6 +53,7 @@
 .nav-animate {
   position: relative;
   transition: color 0.3s ease;
+  color: white !important;
 }
 
 .nav-animate::after {
@@ -72,12 +73,11 @@
   width: 100%;
 }
 
-
 .btn-success {
-  background-color: inherit;
+  background-color: transparent; /* inherit was used, transparent is better */
   border: none;
   color: white;
-  font-weight: 240;
+  font-weight: 400;
   font-family: 'Poppins', sans-serif;
   padding: 8.8px 22px;
   border-radius: 45%;
@@ -87,31 +87,58 @@
 .btn-success:hover {
   background-color: #28a745;
   transform: scale(1.02);
+  color: white;
 }
 
-
+/* Hamburger Menu Styles */
 .navbar-toggler {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 15px !important;  /* Increased padding */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40px;
+  width: 40px;
   margin-left: auto;
-  padding: 0.35rem 0.6rem;
-  background-color: #00c48c;
-  border: none;
-  border-radius: 6px;
+  overflow: hidden;
 }
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4h30v2H0zM0 14h30v2H0zM0 24h30v2H0z'/%3E%3C/svg%3E");
+.hamburger-line {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: white; 
+  color: #fff;/* White lines */
+  transition: all 0.3s ease;
+  transform-origin: center;
+  position: relative;
+}
+
+.navbar-toggler.open .line1 {
+  transform: translateY(14px) rotate(45deg);
+}
+
+.navbar-toggler.open .line2 {
+  opacity: 0;
+}
+
+.navbar-toggler.open .line3 {
+  transform: translateY(-14px) rotate(-45deg);
 }
 
 /* Mobile Styles */
 @media (max-width: 991px) {
   .navbar-collapse {
     position: absolute;
-    top: 95%; /* decreased top margin for mobile */
+    top: 95%;
     left: 0;
     width: 100%;
     background: #0b0b0b;
     padding: 1.5rem;
     z-index: 1029;
+    color: #fff;
   }
 
   .navbar-nav {
@@ -121,15 +148,18 @@
   .nav-link {
     margin: 0.5rem 0;
     font-size: 1.1rem;
+    color: white !important;
   }
 
   .btn {
     width: 100%;
     font-size: 1rem;
+    color: white !important;
   }
 
   .brand-text {
     font-size: 1rem;
+    color: white !important;
   }
 
   .logo-img {

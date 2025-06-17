@@ -84,11 +84,11 @@ export default function PricingSection() {
   return (
     <section id="pricing" className="pricing-section">
       <h2 className="title">
-        Unleash Your <span>Brand’s Potential</span> with Tailored <span>Creative Solutions</span>
+        Unleash Your <span>Brand's Potential</span> with Tailored <span>Creative Solutions</span>
       </h2>
 
       <p className="subtitle">
-        “Build your brand with <span className='pulse-highlight'>50% less</span> investment — same premium quality.”
+        "Build your brand with <span className='pulse-highlight'>50% less</span> investment — same premium quality."
       </p>
 
       <div className="tabs">
@@ -103,32 +103,34 @@ export default function PricingSection() {
         ))}
       </div>
 
-      <div className="cards">
-        {plans.map((plan) => (
-          <div key={plan.title} className="card">
-            <h3>{plan.title}</h3>
-            <p className="description">{plan.description}</p>
-            <p className="price">
-              {plan.price} <span>/ project</span>
-            </p>
-            <ul className="features">
-              {plan.features.map((feature, idx) => (
-                <li
-                  key={idx}
-                  className={feature.includes("❌") ? "disabled" : "enabled"}
-                >
-                  {feature}
-                </li>
-              ))}
-            </ul>
-            <button
-              className="cta-button"
-              onClick={() => handleStartClick(plan, activeCategory)}
-            >
-              Get Started Now
-            </button>
-          </div>
-        ))}
+      <div className="cards-container">
+        <div className="cards">
+          {plans.map((plan) => (
+            <div key={plan.title} className="card">
+              <h3>{plan.title}</h3>
+              <p className="description">{plan.description}</p>
+              <p className="price">
+                {plan.price} <span>/ project</span>
+              </p>
+              <ul className="features">
+                {plan.features.map((feature, idx) => (
+                  <li
+                    key={idx}
+                    className={feature.includes("❌") ? "disabled" : "enabled"}
+                  >
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <button
+                className="cta-button"
+                onClick={() => handleStartClick(plan, activeCategory)}
+              >
+                Get Started Now
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
 
       {showModal && selectedPlan && (
