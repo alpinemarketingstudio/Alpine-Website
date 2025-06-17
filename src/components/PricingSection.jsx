@@ -108,20 +108,28 @@ export default function PricingSection() {
           {plans.map((plan) => (
             <div key={plan.title} className="card">
               <h3>{plan.title}</h3>
-              <p className="description">{plan.description}</p>
+
+              {plan.description && (
+                <p className="description">{plan.description}</p>
+              )}
+
               <p className="price">
                 {plan.price} <span>/ project</span>
               </p>
-              <ul className="features">
-                {plan.features.map((feature, idx) => (
-                  <li
-                    key={idx}
-                    className={feature.includes("❌") ? "disabled" : "enabled"}
-                  >
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+
+              {plan.features && (
+                <ul className="features">
+                  {plan.features.map((feature, idx) => (
+                    <li
+                      key={idx}
+                      className={feature.includes("❌") ? "disabled" : "enabled"}
+                    >
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              )}
+
               <button
                 className="cta-button"
                 onClick={() => handleStartClick(plan, activeCategory)}

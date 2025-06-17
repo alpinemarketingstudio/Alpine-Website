@@ -12,7 +12,7 @@ export default function WhyAlpine() {
   const handlePause = () => {
     pauseTimerRef.current = setTimeout(() => {
       swiperRef.current?.autoplay?.stop();
-    }, 200); // smooth delay before pausing
+    }, 200);
   };
 
   const handleResume = () => {
