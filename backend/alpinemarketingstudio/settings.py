@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&7_*^c^a6+!_n0ow_#7#=iy7@j5(mvu(t@b_7f%g#f73no_z$%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["alpinemarketingstudio.com","www.aplinemarketingstudio.com"]
 
 
 # Application definition
@@ -127,8 +127,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
-
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'               # Add the leading slash (recommended)
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # This is where collectstatic will put static files
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
