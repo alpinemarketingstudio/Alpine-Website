@@ -27,7 +27,6 @@
 
 .navbar-transparent {
   background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
@@ -74,7 +73,7 @@
 }
 
 .btn-success {
-  background-color: transparent; /* inherit was used, transparent is better */
+  background-color: transparent;
   border: none;
   color: white;
   font-weight: 400;
@@ -94,7 +93,7 @@
 .navbar-toggler {
   background-color: transparent !important;
   border: none !important;
-  padding: 15px !important;  /* Increased padding */
+  padding: 15px !important;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -109,8 +108,8 @@
   display: block;
   width: 100%;
   height: 4px;
-  background-color: white; 
-  color: #fff;/* White lines */
+  background-color: white;
+  color: #fff;
   transition: all 0.3s ease;
   transform-origin: center;
   position: relative;
@@ -165,4 +164,25 @@
   .logo-img {
     height: 26px;
   }
+}
+
+/* Custom Language Dropdown Styling */
+.language-dropdown select {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 6px 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Hide Google Translate branding */
+.goog-logo-link,
+.goog-te-gadget span {
+  display: none !important;
+}
+.goog-te-gadget {
+  color: transparent !important;
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Sling as Hamburger } from "hamburger-react"; // import hamburger-react component
+import { Sling as Hamburger } from "hamburger-react";
 import logo from "../assets/logo.png";
 import "../styles/Navbar.css";
 
@@ -15,10 +15,9 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isHome, setIsHome] = useState(true);
   const [activeNav, setActiveNav] = useState(null);
+  const [selectedLang, setSelectedLang] = useState("en");
 
-  const handleToggle = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const handleToggle = () => setMenuOpen(!menuOpen);
 
   const handleContactClick = () => {
     const contactSection = document.getElementById("contact");
@@ -34,6 +33,72 @@ function Navbar() {
     setActiveNav(name === "Home" ? null : name);
   };
 
+  // Load Google Translate script once
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.async = true;
+    document.body.appendChild(script);
+
+    window.googleTranslateElementInit = () => {
+      new window.google.translate.TranslateElement(
+        {
+          pageLanguage: "en",
+          includedLanguages: "en,it,de",
+          autoDisplay: false,
+        },
+        "google_translate_element"
+      );
+    };
+  }, []);
+
+  // Helper: Poll iframe until menu ready then click language item
+  const changeLanguage = (langCode) => {
+    const langMap = { en: "English", it: "Italian", de: "German" };
+
+    const clickLang = () => {
+      const frame = document.querySelector("iframe.goog-te-menu-frame");
+      if (frame) {
+        const innerDoc = frame.contentDocument || frame.contentWindow.document;
+        if (innerDoc) {
+          const langItems = innerDoc.querySelectorAll(".goog-te-menu2-item span.text");
+          if (langItems.length > 0) {
+            for (const item of langItems) {
+              if (
+                item.innerText.toLowerCase() === langMap[langCode].toLowerCase()
+              ) {
+                item.click();
+                return true;
+              }
+            }
+          }
+        }
+      }
+      return false;
+    };
+
+    let attempts = 0;
+    const interval = setInterval(() => {
+      attempts++;
+      if (clickLang() || attempts > 50) {
+        clearInterval(interval);
+      }
+    }, 100);
+  };
+
+  // Trigger language change after selectedLang updates
+  useEffect(() => {
+    if (selectedLang === "en") {
+      // Reload page with ?hl=en to reset Google Translate to English
+      const url = window.location.href.split("?")[0];
+      window.location.href = url + "?hl=en";
+    } else {
+      setTimeout(() => changeLanguage(selectedLang), 500);
+    }
+  }, [selectedLang]);
+
+  // Scroll detection for navbar style
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -84,14 +149,13 @@ function Navbar() {
           <span className="brand-text">Alpine Marketing Studio</span>
         </a>
 
-        {/* Replace your button with Hamburger from hamburger-react */}
         <div className="d-lg-none">
           <Hamburger
             toggled={menuOpen}
             toggle={setMenuOpen}
-            size={24}           // smaller size if you want (default 24)
-            color="#fff"        // white color for lines
-            duration={0.4}      // animation speed
+            size={24}
+            color="#fff"
+            duration={0.4}
           />
         </div>
 
@@ -135,6 +199,21 @@ function Navbar() {
           >
             <i className="bi bi-telephone me-2"></i> Contact Us
           </button>
+
+          {/* Custom language dropdown */}
+          <div className="language-dropdown ms-3">
+            <select
+              value={selectedLang}
+              onChange={(e) => setSelectedLang(e.target.value)}
+            >
+              <option value="en">Language: English</option>
+              <option value="it">Language: Italian</option>
+              <option value="de">Language: German</option>
+            </select>
+          </div>
+
+          {/* Hidden Google Translate element required for translation to work */}
+          <div id="google_translate_element" style={{ display: "none" }}></div>
         </div>
       </div>
     </nav>
