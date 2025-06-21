@@ -4,5 +4,67 @@
   "pricing": "Pricing",
   "about": "About Us",
   "blog": "Blog",
-  "contact": "Contact Us"
+  "contact": "Contact Us",
+  
+  "heroTitlePart1": "Elevate Your Brand with",
+  "heroTitlePart2": "Stunning Visuals & Smart Digital Strategy",
+  "heroParagraphPart1": "We blend stunning visuals with smart digital strategy — offering",
+  "heroPhotography": "Photography, Videography, Web development, UI/UX design,",
+  "heroParagraphPart2": "and",
+  "heroMarketing": "Marketing",
+  "heroParagraphPart3": "that delivers results. At",
+  "heroStudioName": "Alpine Marketing Studio,",
+  "heroParagraphPart4": "we turn your brand into a story your audience remembers.",
+  "getStarted": "Get Started",
+
+  "servicesSectionTitle": "Comprehensive <1>Creative Services</1> to <3>Elevate Your Brand</3>",
+  "readMore": "Read More",
+
+  "serviceData": {
+    "videography": {
+      "title": "Videography",
+      "desc": "We capture the flavor, feel, and essence of your brand through cinematic videos crafted to showcase the best in food, products, and hospitality. Every frame highlights quality, atmosphere, and story, bringing your brand’s excellence vividly to life."
+    },
+    "photography": {
+      "title": "Photography",
+      "desc": "Our photography reveals the true spirit and detail of your brand, expertly capturing food, products, and hospitality with clarity and style. Each image conveys quality, ambiance, and story, showcasing your brand’s unique excellence."
+    },
+    "graphics": {
+      "title": "Graphics Designing",
+      "desc": "We design visuals that connect. From eye-catching social media posts to polished posters, flyers, and cards — our graphic design service brings your brand to life with creativity, clarity, and impact."
+    },
+    "webDevelopment": {
+      "title": "Web/software Development",
+      "desc": "We craft modern, responsive websites and powerful software tailored for today’s businesses. From sleek e-commerce platforms to custom tools that streamline your workflow, we turn ideas into fast, functional digital solutions that grow with you."
+    },
+    "digitalMarketing": {
+      "title": "Digital Marketing",
+      "desc": "We drive growth through data-backed digital marketing — from social media to targeted campaigns, we use modern strategies and tools to boost visibility, engagement, and conversions fast."
+    }
+  },
+
+  "pricingTitle": "Unleash Your <1>Brand's Potential</1> with Tailored <3>Creative Solutions</3>",
+  "pricingSubtitle": "Build your brand with <1>50% less</1> investment — same premium quality.",
+  "getStartedNow": "Get Started Now",
+  "getStartedWith": "Get Started with",
+  "firstName": "First Name*",
+  "lastName": "Last Name*",
+  "email": "Email*",
+  "phoneCode": "Country Code",
+  "phoneNumber": "Phone Number*",
+  "message": "Message*",
+  "messagePlaceholder": "Tell us more about your needs",
+  "agreeText": "I agree to the <1>terms and conditions</1>",
+  "submit": "Submit Inquiry",
+  "cancel": "Cancel",
+  "submitting": "Submitting...",
+  "selectCode": "Select code",
+  "categories": {
+    "photoVideoProduction": "Photo & Video",
+    "websiteDesign": "Website Design",
+    "digitalMarketing": "Digital Marketing",
+    "graphicDesignBranding": "Branding & Design",
+    "softwareAppDevelopment": "Software / App Dev",
+    "comboDeals": "Combo Deals"
+}
 }

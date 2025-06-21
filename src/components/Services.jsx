@@ -1,8 +1,8 @@
 import React from "react";
+import { useTranslation, Trans } from "react-i18next";
 import servicesData from "../data/ServicesData";
 import { FiArrowRight } from "react-icons/fi";
 
-// Import assets
 import videography from "../assets/vid3.mp4";
 import photography from "../assets/p1.jpg";
 import graphics from "../assets/p3.jpeg";
@@ -20,6 +20,8 @@ const mediaMap = {
 };
 
 const Services = () => {
+  const { t } = useTranslation();
+
   const chunkServices = (arr, size) => {
     const chunks = [];
     for (let i = 0; i < arr.length; i += size) {
@@ -33,7 +35,9 @@ const Services = () => {
   return (
     <section id="services" className="services-section">
       <h2 className="section-title">
-        Comprehensive <span>Creative Services</span> to <span>Elevate Your Brand</span>
+        <Trans i18nKey="servicesSectionTitle">
+          Comprehensive <span>Creative Services</span> to <span>Elevate Your Brand</span>
+        </Trans>
       </h2>
 
       <div className="services-grid">
@@ -42,18 +46,23 @@ const Services = () => {
             {pair.map((service) => {
               const mediaSrc = mediaMap[service.media];
 
+              const title = t(service.titleKey);
+              const desc = t(service.descKey);
+
+              const isLarger =
+                service.titleKey === "serviceData.videography.title" ||
+                service.titleKey === "serviceData.digitalMarketing.title" ||
+                service.titleKey === "serviceData.uiux.title";
+
+              const isSmaller = service.titleKey === "serviceData.webDevelopment.title";
+              const isPortrait = service.titleKey === "serviceData.graphics.title";
+
               return (
                 <div
-                  key={service.title}
+                  key={service.titleKey}
                   className={`service-item ${
-                    service.title === "Videography" ||
-                    service.title === "Marketing" ||
-                    service.title === "UI/UX Design"
-                      ? "larger"
-                      : service.title === "Web Design"
-                      ? "smaller"
-                      : "standard"
-                  } ${service.title === "Graphics Designing" ? "portrait" : ""}`}
+                    isLarger ? "larger" : isSmaller ? "smaller" : "standard"
+                  } ${isPortrait ? "portrait" : ""}`}
                 >
                   {service.mediaType === "video" ? (
                     <video
@@ -65,27 +74,22 @@ const Services = () => {
                       playsInline
                     />
                   ) : (
-                    <img
-                      className="background-image"
-                      src={mediaSrc}
-                      alt={service.title}
-                    />
+                    <img className="background-image" src={mediaSrc} alt={title} />
                   )}
 
                   <div
                     className={`overlay ${
-                      service.title === "UI/UX Design" ? "animated-uiux" : ""
+                      service.titleKey === "serviceData.uiux.title" ? "animated-uiux" : ""
                     }`}
                   >
-                    <h3>{service.title}</h3>
-                    <p>{service.desc}</p>
+                    <h3>{title}</h3>
+                    <p>{desc}</p>
 
-                    {/* Read More button */}
                     <a href="">
-                    <div className="read-more">
-                      <span>Read More</span>
-                      <FiArrowRight size={14} />
-                    </div>
+                      <div className="read-more">
+                        <span>{t("readMore")}</span>
+                        <FiArrowRight size={14} />
+                      </div>
                     </a>
                   </div>
                 </div>

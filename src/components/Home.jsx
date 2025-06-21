@@ -1,8 +1,10 @@
 import React from "react";
 import heroVideo from "../assets/vid1.mp4";
-import { GoArrowRight } from "react-icons/go";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
+  const { t } = useTranslation();
+
   const scrollToSection = () => {
     const section = document.getElementById("services");
     if (section) {
@@ -30,23 +32,22 @@ const Home = () => {
         <div className="hero-content-wrapper">
           <div className="hero-text text-white">
             <h1>
-              Elevate Your Brand with <br />
-              Stunning Visuals & Smart Digital Strategy
+              {t("heroTitlePart1")}
+              <br />
+              {t("heroTitlePart2")}
             </h1>
-            <p className="mt-3 ">
-              We blend stunning visuals with smart digital strategy — offering
-              <span>
-                {" "}
-                Photography, Videography, Web development, UI/UX design,
-              </span>{" "}
-              and
-              <span> Marketing</span> that delivers results. At{" "}
-              <span>Alpine Marketing Studio,</span> we turn your brand into a
-              story your audience remembers.
+            <p className="mt-3">
+              {t("heroParagraphPart1")}
+              <span> {t("heroPhotography")} </span>
+              {t("heroParagraphPart2")}
+              <span> {t("heroMarketing")} </span>
+              {t("heroParagraphPart3")}
+              <span> {t("heroStudioName")} </span>
+              {t("heroParagraphPart4")}
             </p>
-            
+
             <button className="cta-button mt-4" onClick={scrollToSection}>
-              Get Started<i className="bi bi-arrow-right ms-1"></i>
+              {t("getStarted")} <i className="bi bi-arrow-right ms-1"></i>
             </button>
           </div>
         </div>

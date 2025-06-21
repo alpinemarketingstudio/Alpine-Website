@@ -134,10 +134,11 @@ function Navbar() {
               <select
                 className="form-select form-select-sm bg-dark text-white border-success"
                 onChange={(e) => changeLanguage(e.target.value)}
-                value={i18n.language}
+                value={i18n.language || "en"}
               >
                 <option value="en">English</option>
-                <option value="np">नेपाली</option>
+                <option value="de">Deutsch</option>
+                <option value="it">Italiano</option>
               </select>
             </li>
           </ul>
@@ -154,10 +155,11 @@ function Navbar() {
           <select
             className="form-select form-select-sm bg-dark text-white border-success ms-2"
             onChange={(e) => changeLanguage(e.target.value)}
-            value={i18n.language}
+            value={i18n.language || "en"}
           >
             <option value="en">EN</option>
-            <option value="np">NP</option>
+            <option value="de">DE</option>
+            <option value="it">IT</option>
           </select>
         </div>
       </div>

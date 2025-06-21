@@ -1,0 +1,70 @@
+{
+  "home": "Home",
+  "services": "Servizi",
+  "pricing": "Prezzi",
+  "about": "Chi siamo",
+  "blog": "Blog",
+  "contact": "Contattaci",
+
+  "heroTitlePart1": "Eleva il tuo brand con",
+  "heroTitlePart2": "immagini straordinarie e una strategia digitale intelligente",
+  "heroParagraphPart1": "Combiniamo immagini straordinarie con strategie digitali intelligenti — offrendo",
+  "heroPhotography": "fotografia, videografia, sviluppo web, design UI/UX,",
+  "heroParagraphPart2": "e",
+  "heroMarketing": "marketing",
+  "heroParagraphPart3": "che portano risultati. Presso",
+  "heroStudioName": "Alpine Marketing Studio,",
+  "heroParagraphPart4": "trasformiamo il tuo brand in una storia che il tuo pubblico ricorderà.",
+  "getStarted": "Inizia ora",
+
+  "servicesSectionTitle": "Servizi <1>creativi completi</1> per <3>elevare il tuo brand</3>",
+  "readMore": "Leggi di più",
+
+  "serviceData": {
+    "videography": {
+      "title": "Videografia",
+      "desc": "Catturiamo il sapore, le emozioni e l’essenza del tuo brand attraverso video cinematografici che mostrano il meglio in fatto di cibo, prodotti e ospitalità. Ogni fotogramma esalta qualità, atmosfera e narrazione."
+    },
+    "photography": {
+      "title": "Fotografia",
+      "desc": "La nostra fotografia rivela lo spirito autentico e i dettagli del tuo brand, catturando cibo, prodotti e ospitalità con chiarezza e stile. Ogni immagine comunica qualità, atmosfera e personalità."
+    },
+    "graphics": {
+      "title": "Grafica",
+      "desc": "Progettiamo contenuti visivi che connettono. Dai post accattivanti per i social ai poster, volantini e biglietti — il nostro design grafico dà vita al tuo brand con creatività e impatto."
+    },
+    "webDevelopment": {
+      "title": "Sviluppo Web/Software",
+      "desc": "Realizziamo siti web moderni e reattivi e software su misura per le esigenze aziendali. Da piattaforme e-commerce a strumenti personalizzati – trasformiamo idee in soluzioni digitali efficaci."
+    },
+    "digitalMarketing": {
+      "title": "Marketing Digitale",
+      "desc": "Guidiamo la crescita con strategie di marketing digitale basate sui dati – dai social media alle campagne mirate, aumentiamo visibilità, coinvolgimento e conversioni in modo rapido ed efficace."
+    }
+  },
+
+  "pricingTitle": "Sblocca il <1>potenziale del tuo brand</1> con <3>soluzioni creative su misura</3>",
+  "pricingSubtitle": "Costruisci il tuo brand con <1>il 50% in meno</1> di investimento — stessa qualità premium.",
+  "getStartedNow": "Inizia ora",
+  "getStartedWith": "Inizia con",
+  "firstName": "Nome*",
+  "lastName": "Cognome*",
+  "email": "Email*",
+  "phoneCode": "Prefisso internazionale",
+  "phoneNumber": "Numero di telefono*",
+  "message": "Messaggio*",
+  "messagePlaceholder": "Raccontaci di più sulle tue esigenze",
+  "agreeText": "Accetto i <1>termini e condizioni</1>",
+  "submit": "Invia richiesta",
+  "cancel": "Annulla",
+  "submitting": "Invio...",
+  "selectCode": "Seleziona prefisso",
+  "categories": {
+    "photoVideoProduction": "Foto & Video",
+    "websiteDesign": "Siti Web",
+    "digitalMarketing": "Marketing Digitale",
+    "graphicDesignBranding": "Branding & Design",
+    "softwareAppDevelopment": "Sviluppo Software/App",
+    "comboDeals": "Offerte Combinate"
+  }
+}

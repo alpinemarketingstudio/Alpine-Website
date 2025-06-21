@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation, Trans } from 'react-i18next';
 import { countryCodes } from '../data/countryCode.js';
 import pricingData from '../data/pricingsection';
 import '../styles/PricingSection.css';
@@ -8,6 +9,7 @@ import { toast } from 'react-toastify';
 const categories = Object.keys(pricingData);
 
 export default function PricingSection() {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState(categories[0]);
   const [showModal, setShowModal] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState(null);
@@ -84,11 +86,15 @@ export default function PricingSection() {
   return (
     <section id="pricing" className="pricing-section">
       <h2 className="title">
-        Unleash Your <span>Brand's Potential</span> with Tailored <span>Creative Solutions</span>
+        <Trans i18nKey="pricingTitle">
+          Unleash Your <span>Brand's Potential</span> with Tailored <span>Creative Solutions</span>
+        </Trans>
       </h2>
 
       <p className="subtitle">
-        "Build your brand with <span className='pulse-highlight'>50% less</span> investment — same premium quality."
+        <Trans i18nKey="pricingSubtitle">
+          Build your brand with <span className="pulse-highlight">50% less</span> investment — same premium quality.
+        </Trans>
       </p>
 
       <div className="tabs">
@@ -98,7 +104,7 @@ export default function PricingSection() {
             className={`tab ${category === activeCategory ? "active" : ""}`}
             onClick={() => setActiveCategory(category)}
           >
-            {category}
+            {t(`categories.${category}`)}
           </button>
         ))}
       </div>
@@ -108,33 +114,19 @@ export default function PricingSection() {
           {plans.map((plan) => (
             <div key={plan.title} className="card">
               <h3>{plan.title}</h3>
-
-              {plan.description && (
-                <p className="description">{plan.description}</p>
-              )}
-
-              <p className="price">
-                {plan.price} <span>/ project</span>
-              </p>
-
+              {plan.description && <p className="description">{plan.description}</p>}
+              <p className="price">{plan.price} <span>/ project</span></p>
               {plan.features && (
                 <ul className="features">
                   {plan.features.map((feature, idx) => (
-                    <li
-                      key={idx}
-                      className={feature.includes("❌") ? "disabled" : "enabled"}
-                    >
+                    <li key={idx} className={feature.includes("❌") ? "disabled" : "enabled"}>
                       {feature}
                     </li>
                   ))}
                 </ul>
               )}
-
-              <button
-                className="cta-button"
-                onClick={() => handleStartClick(plan, activeCategory)}
-              >
-                Get Started Now
+              <button className="cta-button" onClick={() => handleStartClick(plan, activeCategory)}>
+                {t("getStartedNow")}
               </button>
             </div>
           ))}
@@ -144,13 +136,11 @@ export default function PricingSection() {
       {showModal && selectedPlan && (
         <div className="modal-overlay" onClick={handleOverlayClick}>
           <div className="modal-content slide-in">
-            <h2>
-              Get Started with {selectedPlan.planTitle} ({selectedPlan.category})
-            </h2>
+            <h2>{t("getStartedWith")} {selectedPlan.planTitle} ({t(`categories.${selectedPlan.category}`)})</h2>
             <form onSubmit={handleSubmit} className="modal-form">
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="first_name">First Name*</label>
+                  <label htmlFor="first_name">{t("firstName")}</label>
                   <input
                     type="text"
                     name="first_name"
@@ -161,7 +151,7 @@ export default function PricingSection() {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="last_name">Last Name*</label>
+                  <label htmlFor="last_name">{t("lastName")}</label>
                   <input
                     type="text"
                     name="last_name"
@@ -175,16 +165,15 @@ export default function PricingSection() {
 
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="phone_code">Country Code</label>
+                  <label htmlFor="phone_code">{t("phoneCode")}</label>
                   <select
                     name="phone_code"
                     id="phone_code"
                     value={formData.phone_code}
                     onChange={handleChange}
-                    aria-label="Country dialing code"
                     required
                   >
-                    <option value="">Select code</option>
+                    <option value="">{t("selectCode")}</option>
                     {countryCodes.map(({ code, label }) => (
                       <option key={code} value={code}>
                         {label} ({code})
@@ -194,7 +183,7 @@ export default function PricingSection() {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="phone">Phone Number*</label>
+                  <label htmlFor="phone">{t("phoneNumber")}</label>
                   <input
                     type="text"
                     name="phone"
@@ -207,7 +196,7 @@ export default function PricingSection() {
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Email*</label>
+                <label htmlFor="email">{t("email")}</label>
                 <input
                   type="email"
                   name="email"
@@ -219,11 +208,11 @@ export default function PricingSection() {
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Message*</label>
+                <label htmlFor="message">{t("message")}</label>
                 <textarea
                   name="message"
                   id="message"
-                  placeholder="Tell us more about your needs"
+                  placeholder={t("messagePlaceholder")}
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
@@ -241,13 +230,15 @@ export default function PricingSection() {
                     required
                   />
                   <span className="checkmark"></span>
-                  I agree to the <a href="#">terms and conditions</a>
+                  <Trans i18nKey="agreeText">
+                    I agree to the <a href="#">terms and conditions</a>
+                  </Trans>
                 </label>
               </div>
 
               <div className="modal-actions">
                 <button type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? "Submitting..." : "Submit Inquiry"}
+                  {isSubmitting ? t("submitting") : t("submit")}
                 </button>
                 <button
                   type="button"
@@ -255,7 +246,7 @@ export default function PricingSection() {
                   onClick={() => setShowModal(false)}
                   disabled={isSubmitting}
                 >
-                  Cancel
+                  {t("cancel")}
                 </button>
               </div>
             </form>
