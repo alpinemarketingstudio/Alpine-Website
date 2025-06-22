@@ -1,0 +1,445 @@
+/* Updated CSS with only the card-related modifications */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;  /* allow cards to wrap to next line */
+  gap: 16px;        /* spacing between cards */
+  justify-content: center; /* center cards */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.cards {
+  display: flex;
+  gap: 0px;
+  padding: 10px 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.card {
+  flex: 0 0 300px;
+  min-width: 330px;
+  padding: 22px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  min-height: 600px;
+  text-align: left;
+  scroll-snap-align: start;
+}
+
+/* For tablets and larger devices */
+@media (min-width: 768px) {
+  .cards {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    padding: 20px;
+  }
+  
+  .card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 320px;
+  }
+  
+}
+
+
+/* Keep all other existing styles exactly the same */
+.pricing-section {
+  background: #f3f3f5;
+  color: black;
+  padding: 64px 0;
+  text-align: center;
+  margin: 0;
+  border-radius: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 45px;
+  font-weight: 300;
+  margin-bottom: 8px;
+  font-family: 'Lora', serif;
+  color: black;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.title span {
+  color: #28a745;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subtitle {
+  margin-bottom: 32px;
+  font-size: 18px;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+}
+
+.pulse-highlight {
+  color: #28a745;
+  text-shadow: 0 0 8px rgba(32, 115, 52, 0.4);
+  animation: pulse 2s infinite;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; text-shadow: 0 0 12px rgba(64, 104, 74, 0.6); }
+  100% { opacity: 1; }
+}
+
+.tabs {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 8px 24px;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  background-color: white;
+  color: #28a745;
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  border-color: #28a745;
+  background-color: #28a745;
+  color: white;
+}
+
+.tab:hover {
+  background-color: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.card h3 {
+  font-weight: 500;
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: #000000;
+}
+
+.card .description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 45px;
+  margin-bottom: 1px;
+  color: #000000;
+}
+
+.price span {
+  font-weight: 300;
+  font-size: 17px;
+  color: #707070;
+}
+
+.features {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #444;
+}
+.features li {
+  position: relative;
+  padding-left: 24px; /* space for the icon */
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 14px;
+}
+
+.features li::before {
+  content: "✔"; /* Unicode checkmark */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #28a745; /* modern green */
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1;
+}
+
+
+.features li.disabled {
+  color: #bbb;
+  text-decoration: line-through;
+}
+
+.features li.enabled {
+  color: #707070;
+}
+
+.cta-button {
+  background-color: #28a745;
+  color: white;
+  font-weight: 600;
+  padding: 14px 32px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #1e7e34;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.25s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: white;
+  padding: 24px 40px;
+  border-radius: 20px;
+  max-width: 550px;
+  width: 90vw;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  animation: slideIn 0.25s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-content h2 {
+  font-family: 'Lora', serif;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #28a745;
+}
+
+.modal-form .form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-group label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1.5px solid #ccc;
+  transition: border-color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #28a745;
+  box-shadow: 0 0 5px #28a745aa;
+}
+
+.checkbox-row {
+  margin-bottom: 16px;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding-left: 28px;
+}
+
+.checkbox-container input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+  border-radius: 4px;
+  border: 1.5px solid #ccc;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-container a {
+  color: #28a745;
+  text-decoration: underline;
+  margin-left: 6px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.modal-actions button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.modal-actions button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+}
+
+.modal-actions button[type="submit"]:disabled {
+  background-color: #99cfa7;
+  cursor: not-allowed;
+}
+
+.cancel-button {
+  background-color: #ccc;
+  color: #444;
+}
+
+.cancel-button:hover:not(:disabled) {
+  background-color: #aaa;
+  color: white;
+}
+/* Laptop styles */
+/* Tablet styles */
+@media (min-width: 1024px)  {
+  .title {
+    font-size: 28px;
+  }
+  .pricing-section {
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .title {
+    font-size: 26px; /* smaller font size on mobile */
+  }
+  .pricing-section{
+    height: auto;
+
+  }
+  .subtitle{
+    font-size: 13px;
+    
+  }
+}

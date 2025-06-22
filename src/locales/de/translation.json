@@ -1,0 +1,70 @@
+{
+  "home": "Startseite",
+  "services": "Dienstleistungen",
+  "pricing": "Preise",
+  "about": "Über uns",
+  "blog": "Blog",
+  "contact": "Kontakt",
+
+  "heroTitlePart1": "Steigern Sie Ihre Marke mit",
+  "heroTitlePart2": "atemberaubenden Bildern & intelligenter Digitalstrategie",
+  "heroParagraphPart1": "Wir kombinieren atemberaubende Bilder mit intelligenter Digitalstrategie — und bieten",
+  "heroPhotography": "Fotografie, Videografie, Webentwicklung, UI/UX-Design,",
+  "heroParagraphPart2": "und",
+  "heroMarketing": "Marketing",
+  "heroParagraphPart3": "die Ergebnisse liefern. Bei",
+  "heroStudioName": "Alpine Marketing Studio,",
+  "heroParagraphPart4": "verwandeln wir Ihre Marke in eine Geschichte, die Ihr Publikum nicht vergisst.",
+  "getStarted": "Loslegen",
+
+  "servicesSectionTitle": "Umfassende <1>kreative Dienstleistungen</1> zur <3>Stärkung Ihrer Marke</3>",
+  "readMore": "Mehr erfahren",
+
+  "serviceData": {
+    "videography": {
+      "title": "Videografie",
+      "desc": "Wir erfassen den Geschmack, das Gefühl und die Essenz Ihrer Marke durch cineastische Videos, die das Beste in Sachen Essen, Produkte und Gastfreundschaft zeigen. Jeder Frame betont Qualität, Atmosphäre und Geschichte, und bringt Ihre Markenidentität eindrucksvoll zur Geltung."
+    },
+    "photography": {
+      "title": "Fotografie",
+      "desc": "Unsere Fotografie zeigt den wahren Geist und die Details Ihrer Marke, indem sie Essen, Produkte und Gastfreundschaft mit Klarheit und Stil einfängt. Jedes Bild vermittelt Qualität, Ambiente und Geschichte."
+    },
+    "graphics": {
+      "title": "Grafikdesign",
+      "desc": "Wir entwerfen visuelle Inhalte, die wirken. Von auffälligen Social-Media-Posts bis hin zu stilvollen Postern, Flyern und Karten – unser Design bringt Ihre Marke mit Kreativität und Klarheit zum Ausdruck."
+    },
+    "webDevelopment": {
+      "title": "Web-/Softwareentwicklung",
+      "desc": "Wir erstellen moderne, responsive Websites und leistungsstarke Softwarelösungen für heutige Unternehmen. Von E-Commerce-Plattformen bis hin zu maßgeschneiderten Tools – wir entwickeln digitale Lösungen, die mit Ihrem Unternehmen wachsen."
+    },
+    "digitalMarketing": {
+      "title": "Digitales Marketing",
+      "desc": "Wir fördern Wachstum durch datenbasiertes digitales Marketing – von Social Media bis zu gezielten Kampagnen steigern wir Sichtbarkeit, Engagement und Conversions effizient."
+    }
+  },
+
+  "pricingTitle": "Entfesseln Sie das <1>Potenzial Ihrer Marke</1> mit maßgeschneiderten <3>kreativen Lösungen</3>",
+  "pricingSubtitle": "Bauen Sie Ihre Marke mit <1>50 % weniger</1> Investition auf – gleiche Premium-Qualität.",
+  "getStartedNow": "Jetzt starten",
+  "getStartedWith": "Starten mit",
+  "firstName": "Vorname*",
+  "lastName": "Nachname*",
+  "email": "E-Mail*",
+  "phoneCode": "Ländervorwahl",
+  "phoneNumber": "Telefonnummer*",
+  "message": "Nachricht*",
+  "messagePlaceholder": "Erzählen Sie uns mehr über Ihre Bedürfnisse",
+  "agreeText": "Ich stimme den <1>Allgemeinen Geschäftsbedingungen</1> zu",
+  "submit": "Anfrage absenden",
+  "cancel": "Abbrechen",
+  "submitting": "Senden...",
+  "selectCode": "Vorwahl auswählen",
+  "categories": {
+    "photoVideoProduction": "Foto & Video",
+    "websiteDesign": "Webdesign",
+    "digitalMarketing": "Digitales Marketing",
+    "graphicDesignBranding": "Branding & Design",
+    "softwareAppDevelopment": "Software / App Entwicklung",
+    "comboDeals": "Kombi-Angebote"
+  }
+}
