@@ -22,6 +22,8 @@ function Navbar() {
     i18n.changeLanguage(lang);
   };
 
+  const handleToggle = () => setMenuOpen(!menuOpen);
+
   const handleContactClick = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
@@ -86,7 +88,6 @@ function Navbar() {
           <span className="brand-text">Alpine Marketing Studio</span>
         </a>
 
-        {/* Hamburger Toggle */}
         <div className="d-lg-none">
           <Hamburger
             toggled={menuOpen}
@@ -97,7 +98,6 @@ function Navbar() {
           />
         </div>
 
-        {/* Collapsible Menu */}
         <div
           className={`collapse navbar-collapse justify-content-center ${
             menuOpen ? "show" : ""
@@ -121,44 +121,43 @@ function Navbar() {
                 </li>
               ))}
 
-            {/* Contact Button inside mobile menu */}
             <li className="nav-item d-lg-none mt-3">
               <button
-                className="btn btn-success w-100 d-flex justify-content-center align-items-center"
+                className={`btn btn-success w-100 d-flex justify-content-center align-items-center ${
+                  i18n.language === "en" ? "btn-wide-en" : ""
+                }`}
                 onClick={handleContactClick}
               >
-                <i className="bi bi-telephone me-2"></i>
-                <span>{t("contact")}</span>
+                <i className="bi bi-telephone me-2"></i> {t("contact")}
               </button>
             </li>
 
-            {/* Language Selector inside mobile menu ONLY */}
-            <li className="nav-item d-lg-none mt-3">
+            <li className="nav-item d-lg-none mt-2">
               <select
-                className="form-select form-select-sm bg-dark text-white border-success lang-dropdown-mobile"
+                className="form-select form-select-sm bg-dark text-white "
                 onChange={(e) => changeLanguage(e.target.value)}
                 value={i18n.language || "en"}
               >
-                <option value="en">EN</option>
-                <option value="de">DE</option>
-                <option value="it">IT</option>
+                <option value="en">English</option>
+                <option value="de">Deutsch</option>
+                <option value="it">Italiano</option>
               </select>
             </li>
           </ul>
         </div>
 
-        {/* Desktop Contact and Language Selector ONLY */}
         <div className="d-none d-lg-flex align-items-center gap-2">
           <button
-            className="btn btn-success d-flex align-items-center"
+            className={`btn btn-success rounded-pill px-3 d-flex align-items-center ${
+              i18n.language === "en" ? "btn-wide-en" : ""
+            }`}
             onClick={handleContactClick}
           >
-            <i className="bi bi-telephone me-2"></i>
-            <span>{t("contact")}</span>
+            <i className="bi bi-telephone me-2"></i> {t("contact")}
           </button>
 
           <select
-            className="form-select form-select-sm bg-dark text-white border-success lang-dropdown"
+            className="form-select form-select-sm bg-dark text-white border-success ms-2"
             onChange={(e) => changeLanguage(e.target.value)}
             value={i18n.language || "en"}
           >

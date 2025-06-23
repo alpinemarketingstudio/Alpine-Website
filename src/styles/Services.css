@@ -38,12 +38,9 @@
   cursor: pointer;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
 }
 
-/* Size variations */
+/* Larger/Smaller variations */
 .service-item.larger {
   flex: 1.6;
   min-height: 500px;
@@ -52,6 +49,8 @@
   flex: 0.6;
   min-height: 500px;
 }
+
+/* Portrait box - narrow and tall */
 .service-item.portrait {
   flex: 1;
   max-width: 500px;
@@ -61,7 +60,7 @@
   visibility: hidden;
 }
 
-/* Media styles */
+/* Media */
 .background-video,
 .background-image {
   position: absolute;
@@ -75,13 +74,13 @@
   transition: transform 0.4s ease;
 }
 
-/* Zoom on hover */
+/* Hover zoom effect */
 .service-item:hover .background-image,
 .service-item:hover .background-video {
   transform: scale(1.05);
 }
 
-/* Overlay gradient */
+/* Gradient overlay - darker version */
 .service-item::before {
   content: "";
   position: absolute;
@@ -100,23 +99,26 @@
   border-radius: 16px;
 }
 
-/* Text and content overlay */
+/* Text overlay */
 .overlay {
-  position: relative;
-  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: transparent;
   color: #fff;
-  padding: 25px 30px 60px;
+  padding: 20px 30px;
   font-family: "Georgia", serif;
   font-size: 1rem;
   line-height: 1.4;
   font-weight: 400;
   user-select: none;
+  z-index: 2;
 }
 
 .overlay h3 {
   font-size: 1.5rem;
   font-weight: 200;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .overlay p {
@@ -126,32 +128,7 @@
   color: #d5d5d5;
 }
 
-/* Read more button */
-.read-more {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 12px;
-  padding: 6px 12px;
-  background-color: rgba(0, 0, 0, 0.05);
-  color: #d5d5d5;
-  border: 1px solid #d6d6d6;
-  border-radius: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 3;
-  white-space: nowrap;
-}
-
-.read-more:hover {
-  background-color: rgba(175, 175, 175, 0.2);
-  border-color: #ffffff;
-}
-
-/* Responsive rules */
+/* Responsive spacing */
 @media (max-width: 768px) {
   .services-row {
     flex-direction: column;
@@ -171,29 +148,22 @@
     line-height: 35px;
     font-weight: 200;
   }
-
   .overlay h3 {
-    font-size: 1.6rem;
-    font-weight: 200;
-    margin-bottom: 5px;
-  }
-
-  .overlay p {
-    font-size: 13px;
-    font-weight: 100;
-    margin-bottom: 20px;
-    color: #d5d5d5;
-  }
-
-  .read-more {
-    font-size: 11px;
-    padding: 5px 10px;
-    bottom: 16px;
-    right: 15px;
-  }
+  font-size: 1.6rem;
+  font-weight: 200;
+  margin-bottom: 5px;
 }
 
-/* Spacing for large screens */
+.overlay p {
+  font-size: 13px;
+  font-weight: 100;
+  margin-bottom: 10px;
+  color: #d5d5d5;
+    margin-bottom: 20px; 
+}
+}
+
+
 @media (min-width: 768px) {
   .services-section {
     padding-left: 48px;
@@ -222,5 +192,38 @@
   .services-section {
     padding-left: 280px;
     padding-right: 280px;
+  }
+}
+
+
+.read-more {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  padding: 5px 10px;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #d5d5d5d5;
+  border: 1px solid #d6d6d6;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.read-more:hover {
+  background-color: rgba(175, 175, 175, 0.2);
+  border-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .read-more {
+    font-size: 10px;
+    padding: 4px 8px;
+    bottom: 12px;
+    right: 15px;
   }
 }

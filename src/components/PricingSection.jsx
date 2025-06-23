@@ -128,7 +128,6 @@ export default function PricingSection() {
                   ))}
                 </ul>
               )}
-
               <button className="cta-button" onClick={() => handleStartClick(plan, activeCategory)}>
                 {t("getStartedNow")}
               </button>
