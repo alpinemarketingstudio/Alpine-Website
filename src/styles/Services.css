@@ -56,7 +56,6 @@
   max-width: 500px;
   min-height: 500px;
 }
-
 .service-item.empty {
   visibility: hidden;
 }
@@ -171,28 +170,24 @@
     padding-right: 48px;
   }
 }
-
 @media (min-width: 1200px) {
   .services-section {
     padding-left: 80px;
     padding-right: 80px;
   }
 }
-
 @media (min-width: 1800px) {
   .services-section {
     padding-left: 200px;
     padding-right: 200px;
   }
 }
-
 @media (min-width: 2500px) {
   .services-section {
     padding-left: 200px;
     padding-right: 200px;
   }
 }
-
 @media (min-width: 3000px) {
   .services-section {
     padding-left: 280px;

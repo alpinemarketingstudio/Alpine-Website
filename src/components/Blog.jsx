@@ -1,12 +1,15 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "../styles/Blog.css";
 import blogData from "../data/Blog.js";
 
 const Blog = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="blog" className="blog-section">
-      <p className="blog-subtitle">Learn new technology</p>
-      <h2 className="blog-heading">Read our blog</h2>
+      <p className="blog-subtitle">{t("blogSection.subtitle")}</p>
+      <h2 className="blog-heading">{t("blogSection.heading")}</h2>
 
       <div className="blog-cards">
         {blogData.map((item, index) => (

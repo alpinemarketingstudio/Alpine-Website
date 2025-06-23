@@ -5,7 +5,11 @@
   "about": "About Us",
   "blog": "Blog",
   "contact": "Contact Us",
+<<<<<<< HEAD
+
+=======
   
+>>>>>>> db205b622f1209691381b9dda715219505d22763
   "heroTitlePart1": "Elevate Your Brand with",
   "heroTitlePart2": "Stunning Visuals & Smart Digital Strategy",
   "heroParagraphPart1": "We blend stunning visuals with smart digital strategy — offering",
@@ -66,5 +70,310 @@
     "graphicDesignBranding": "Branding & Design",
     "softwareAppDevelopment": "Software / App Dev",
     "comboDeals": "Combo Deals"
-}
+  },
+
+  "pricingData": {
+    "photoVideoProduction": {
+      "contentStarter": {
+        "title": "Content Starter",
+        "description": "Perfect for cafes, shops, salons, or personal brands who need monthly content.",
+        "features": {
+          "feature1": "2-hour local shoot",
+          "feature2": "10 professionally edited photos",
+          "feature3": "1 Instagram reel (15–30 sec)",
+          "feature4": "Basic lighting & editing",
+          "feature5": "Delivery in 3 days"
+        }
+      },
+      "contentPro": {
+        "title": "Content Pro",
+        "description": "Great for small businesses or Airbnb hosts wanting regular content.",
+        "features": {
+          "feature1": "4-hour shoot",
+          "feature2": "30 edited photos (interior, product, lifestyle)",
+          "feature3": "2–3 Instagram reels (15–60 sec)",
+          "feature4": "1-minute cinematic promo video",
+          "feature5": "Light direction & scripting"
+        }
+      },
+      "contentDeluxe": {
+        "title": "Content Deluxe",
+        "description": "For hotels, restaurants, or events looking to build an online presence.",
+        "features": {
+          "feature1": "Full-day shoot (up to 8 hours)",
+          "feature2": "60+ edited photos",
+          "feature3": "5 reels (multi-platform optimized)",
+          "feature4": "2-minute business promo with logo animation",
+          "feature5": "Basic drone footage included",
+          "feature6": "Licensed music"
+        }
+      }
+    },
+    "websiteDesign": {
+      "basicWebsite": {
+        "title": "Basic Website",
+        "description": "Ideal for freelancers, local shops, or artists.",
+        "features": {
+          "feature1": "Up to 5 pages (Home, About, Services, Contact, Gallery)",
+          "feature2": "Mobile responsive",
+          "feature3": "Custom layout (no templates)",
+          "feature4": "Contact form + map integration",
+          "feature5": "Fast loading",
+          "feature6": "WhatsApp/chat integration"
+        }
+      },
+      "businessWebsite": {
+        "title": "Business Website",
+        "description": "For small companies, salons, or travel businesses.",
+        "features": {
+          "feature1": "6–10 pages",
+          "feature2": "WordPress or Shopify CMS",
+          "feature3": "Blog/portfolio setup",
+          "feature4": "Basic SEO setup (keywords, meta tags)",
+          "feature5": "Product list or service menu",
+          "feature6": "Instagram feed integration"
+        }
+      },
+      "customWebApp": {
+        "title": "Custom Web App",
+        "description": "For startups, service providers, or e-commerce businesses.",
+        "features": {
+          "feature1": "Built with MERN/Next.js",
+          "feature2": "Custom dashboard & user panel",
+          "feature3": "Booking, reservation, or CRM integration",
+          "feature4": "Stripe/PayPal payments",
+          "feature5": "Admin management panel",
+          "feature6": "UI/UX tailored design",
+          "feature7": "API integrations available"
+        }
+      }
+    },
+    "digitalMarketing": {
+      "socialStarter": {
+        "title": "Social Starter",
+        "description": "Designed for individuals, artists, or small shops.",
+        "features": {
+          "feature1": "8 Instagram/Facebook posts per month",
+          "feature2": "2 Reels (filmed or animated)",
+          "feature3": "Content calendar",
+          "feature4": "Captions in Italian & English",
+          "feature5": "Scheduling & publishing"
+        }
+      },
+      "socialPro": {
+        "title": "Social Pro",
+        "description": "For restaurants, boutiques, and small brands.",
+        "features": {
+          "feature1": "12 posts/month",
+          "feature2": "4 reels or TikToks",
+          "feature3": "Facebook + Instagram management",
+          "feature4": "Hashtag strategy + insights",
+          "feature5": "Basic ad support (1 campaign setup)",
+          "feature6": "Comments & DMs managed (optional)"
+        }
+      },
+      "socialPremium": {
+        "title": "Social Premium",
+        "description": "For businesses looking to grow online.",
+        "features": {
+          "feature1": "20+ high-quality posts (photos/videos/graphics)",
+          "feature2": "8 Reels (trending format)",
+          "feature3": "Strategy creation + ad testing",
+          "feature4": "Google & Meta ad setup",
+          "feature5": "Monthly reports with growth insights",
+          "feature6": "Performance-based content optimization"
+        },
+        "adsPricing": {
+          "metaAdSetup": "Meta Ad Setup",
+          "googleAdsSetup": "Google Ads Setup",
+          "monthlyAdManagement": "Monthly Ad Management"
+        }
+      }
+    },
+    "graphicDesignBranding": {
+      "logoKit": {
+        "title": "Logo Kit",
+        "features": {
+          "feature1": "2 logo concepts + 1 final",
+          "feature2": "All file formats (PNG, SVG, PDF)",
+          "feature3": "Brand colors & fonts",
+          "feature4": "Logo usage guide"
+        }
+      },
+      "brandStarter": {
+        "title": "Brand Starter",
+        "features": {
+          "feature1": "Logo + Color Palette + Fonts",
+          "feature2": "Social media templates (Instagram grid & stories)",
+          "feature3": "Business card design",
+          "feature4": "Cover image/banner for Facebook or LinkedIn"
+        }
+      },
+      "fullBrandPack": {
+        "title": "Full Brand Pack",
+        "features": {
+          "feature1": "Logo + Visual Identity System",
+          "feature2": "Brand Guidebook (typography, usage, visuals)",
+          "feature3": "Business cards, brochures, IG highlights, and product labels",
+          "feature4": "Mockups for social media, website, and packaging"
+        }
+      }
+    },
+    "softwareAppDevelopment": {
+      "mvpApp": {
+        "title": "MVP App",
+        "description": "For startups and small tools.",
+        "features": {
+          "feature1": "Built using MERN stack or Firebase",
+          "feature2": "User login/register",
+          "feature3": "Dashboard, data storage",
+          "feature4": "Email/password + social login",
+          "feature5": "Mobile-first responsive design"
+        }
+      },
+      "businessPlatform": {
+        "title": "Business Platform",
+        "description": "For service businesses, CRM tools, or POS systems.",
+        "features": {
+          "feature1": "Custom dashboard",
+          "feature2": "Admin + user roles",
+          "feature3": "Booking, product, or service management",
+          "feature4": "Payment integration (Stripe, PayPal)",
+          "feature5": "API integration",
+          "feature6": "Notification/email system"
+        }
+      },
+      "enterpriseApp": {
+        "title": "Enterprise App",
+        "description": "Advanced full-stack web app",
+        "features": {
+          "feature1": "Secure backend, analytics dashboard",
+          "feature2": "Admin & staff access levels",
+          "feature3": "Monthly maintenance & deployment included",
+          "feature4": "Server setup (AWS/Vercel) included"
+        },
+        "supportPlans": {
+          "monthlySupport": "Monthly Support & Maintenance",
+          "hourlyDevWork": "Hourly Dev Work"
+        }
+      }
+    },
+    "comboDeals": {
+      "startupKit": {
+        "title": "Startup Kit",
+        "description": "Logo + Basic Website + 10 Product Photos + 1 Instagram Reel"
+      },
+      "smbBooster": {
+        "title": "SMB Booster",
+        "description": "Business Website + Brand Starter Pack + 1 Month Social Content"
+      },
+      "allInOneDigital": {
+        "title": "All-In-One Digital",
+        "description": "Website + Brand Identity + Content Day (photos/videos) + 2 Month Marketing & Ads"
+      }
+    }
+  },
+
+  "inquirySuccess": "Inquiry submitted successfully!",
+  "inquiryFailed": "Submission failed. Try again!",
+
+  "whyOnly": "Why Only",
+  "whyFeatures": [
+    {
+      "title": "Smart Pricing",
+      "description": "Enjoy affordable packages carefully designed to give you maximum value without stretching your budget."
+    },
+    {
+      "title": "Creative Power",
+      "description": "Our creative team brings fresh, original ideas that make your brand stand out in a crowded market."
+    },
+    {
+      "title": "Proven Success",
+      "description": "We deliver measurable results that help your business grow and achieve real impact."
+    },
+    {
+      "title": "On-Time Delivery",
+      "description": "We respect your timeline and guarantee prompt delivery of every project milestone."
+    },
+    {
+      "title": "Reliable Support",
+      "description": "Our team is always available to provide timely assistance and resolve any concerns."
+    },
+    {
+      "title": "Tailored Solutions",
+      "description": "We customize our services to perfectly match your unique brand goals and industry needs."
+    },
+    {
+      "title": "Expert Team",
+      "description": "Work with highly skilled professionals who are passionate about bringing your vision to life."
+    },
+    {
+      "title": "Cutting-Edge Tools",
+      "description": "We leverage the latest technology and tools to ensure your project is innovative and effective."
+    },
+    {
+      "title": "Clear Communication",
+      "description": "Stay informed with transparent updates and easy collaboration throughout the project."
+    },
+    {
+      "title": "Customer Focus",
+      "description": "Your satisfaction is our top priority—we go the extra mile to exceed your expectations."
+    }
+  ],
+  
+  "blogSection": {
+    "subtitle": "Learn new technology",
+    "heading": "Read our blog"
+  },
+
+  "contactForm": {
+    "firstName": "First Name *",
+    "lastName": "Last Name *",
+    "email": "Email Address *",
+    "phone": "Phone Number *",
+    "countryCode": "Country Code",
+    "message": "Message *",
+    "policyLabel": "By submitting this form I accept the",
+    "privacyPolicy": "privacy policy",
+    "sendMessage": "Send Message",
+    "success": "Form submitted successfully!",
+    "error": "Something went wrong. Please try again.",
+    "fail": "Failed to submit. Please try again later.",
+    "validation": {
+      "fillRequired": "Please fill all required fields.",
+      "selectCode": "Please select a country code.",
+      "invalidEmail": "Please enter a valid email address.",
+      "invalidPhone": "Please enter a valid phone number (7–15 digits).",
+      "enterMessage": "Please enter at least one word in the message.",
+      "acceptPolicy": "Please agree to the privacy policy."
+    },
+    "heyThere": "Hey there!",
+    "letsChat": "Let's chat",
+    "interested": "Interested in working with us?",
+    "fillForm": "Or have a general enquiry? Fill in the form today, and our team will be in touch shortly.",
+    "hateForms": "Hate Forms?",
+    "emailInstead": "If you’d prefer to email us directly, then here is our:"
+  },
+
+  "footer": {
+    "studioName": "Alpine Marketing Studio",
+    "services": "Services",
+    "design": "Design",
+    "photo": "Photo",
+    "video": "Video",
+    "web": "Web",
+    "social": "Social",
+    "resources": "Resources",
+    "blog": "Blog",
+    "tutorials": "Tutorials",
+    "caseStudies": "Case Studies",
+    "guides": "Guides",
+    "contactUs": "Contact Us",
+    "subscribe": "Subscribe to our Newsletter",
+    "placeholderEmail": "Your email address",
+    "subscribeBtn": "Subscribe",
+    "rightsReserved": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
 }
