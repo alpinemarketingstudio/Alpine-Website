@@ -2,11 +2,15 @@
 
 .custom-navbar {
   background: #010409;
-  padding: 0.7rem 1rem;
+  padding: 0 1rem;
   z-index: 1030;
   position: fixed;
   width: 100%;
   top: 0;
+
+  /* Standard navbar height */
+  height: 78.95px;        /* typical navbar height */
+  line-height: 56px;   /* vertically center inline content */
 }
 
 .logo-img {
@@ -17,9 +21,12 @@
 .brand-text {
   color: white;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1.1rem;
   white-space: nowrap;
+  line-height: normal; /* reset to avoid clash with navbar */
+  display: flex;
+  align-items: center;
 }
 
 .navbar-nav {
@@ -36,6 +43,7 @@
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease;
+  line-height: normal;
 }
 
 .nav-link:hover,
@@ -69,12 +77,25 @@
   padding: 8.8px 22px;
   border-radius: 45%;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  height: 36px;
+  line-height: 1.2;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-success:hover {
   background-color: #28a745;
   transform: scale(1.02);
   color: white;
+}
+
+/* Slightly wider Contact button only when English is selected */
+.btn-wide-en {
+  min-width: 150px; /* just wide enough for English "Contact" */
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 /* Hamburger Menu Styles */
@@ -117,6 +138,12 @@
 
 /* Mobile Styles */
 @media (max-width: 991px) {
+  .custom-navbar {
+    height: auto; /* allow height to grow on mobile */
+    padding: 0.7rem 1rem;
+    line-height: normal;
+  }
+
   .navbar-collapse {
     position: absolute;
     top: 95%;
@@ -143,6 +170,7 @@
     width: 100%;
     font-size: 1rem;
     color: white !important;
+    height: 40px; /* a bit taller for touch */
   }
 
   .brand-text {
@@ -153,5 +181,12 @@
   .logo-img {
     height: 26px;
   }
-}
 
+  /* On mobile, override the wider width to full width */
+  .btn-wide-en {
+    min-width: auto;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

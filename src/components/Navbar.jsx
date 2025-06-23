@@ -123,7 +123,9 @@ function Navbar() {
 
             <li className="nav-item d-lg-none mt-3">
               <button
-                className="btn btn-success w-100 d-flex justify-content-center align-items-center"
+                className={`btn btn-success w-100 d-flex justify-content-center align-items-center ${
+                  i18n.language === "en" ? "btn-wide-en" : ""
+                }`}
                 onClick={handleContactClick}
               >
                 <i className="bi bi-telephone me-2"></i> {t("contact")}
@@ -132,7 +134,7 @@ function Navbar() {
 
             <li className="nav-item d-lg-none mt-2">
               <select
-                className="form-select form-select-sm bg-dark text-white border-success"
+                className="form-select form-select-sm bg-dark text-white "
                 onChange={(e) => changeLanguage(e.target.value)}
                 value={i18n.language || "en"}
               >
@@ -146,7 +148,9 @@ function Navbar() {
 
         <div className="d-none d-lg-flex align-items-center gap-2">
           <button
-            className="btn btn-success rounded-pill px-3 d-flex align-items-center"
+            className={`btn btn-success rounded-pill px-3 d-flex align-items-center ${
+              i18n.language === "en" ? "btn-wide-en" : ""
+            }`}
             onClick={handleContactClick}
           >
             <i className="bi bi-telephone me-2"></i> {t("contact")}
