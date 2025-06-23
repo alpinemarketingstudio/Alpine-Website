@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import { countryCodes } from '../data/countryCode.js';
-import pricingData from '../data/pricingsection';
+import pricingData from '../data/pricingData.js';
 import '../styles/PricingSection.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -30,7 +30,7 @@ export default function PricingSection() {
   }, [showModal]);
 
   const handleStartClick = (plan, category) => {
-    setSelectedPlan({ planTitle: plan.title, category });
+    setSelectedPlan({ planTitleKey: plan.titleKey, category });
     setShowModal(true);
   };
 
@@ -52,12 +52,12 @@ export default function PricingSection() {
       phone: `${formData.phone_code} ${formData.phone}`,
       message: formData.message,
       service_category: selectedPlan.category,
-      plan_title: selectedPlan.planTitle,
+      plan_title: t(selectedPlan.planTitleKey),
     };
 
     try {
       await axios.post("http://localhost:8000/api/service-inquiry/", payload);
-      toast.success("Inquiry submitted successfully!");
+      toast.success(t("inquirySuccess"));
       setFormData({
         first_name: "",
         last_name: "",
@@ -69,7 +69,7 @@ export default function PricingSection() {
       });
       setShowModal(false);
     } catch (err) {
-      toast.error("Submission failed. Try again!");
+      toast.error(t("inquiryFailed"));
     } finally {
       setIsSubmitting(false);
     }
@@ -111,20 +111,24 @@ export default function PricingSection() {
 
       <div className="cards-container">
         <div className="cards">
-          {plans.map((plan) => (
-            <div key={plan.title} className="card">
-              <h3>{plan.title}</h3>
-              {plan.description && <p className="description">{plan.description}</p>}
-              <p className="price">{plan.price} <span>/ project</span></p>
-              {plan.features && (
+          {plans.map((plan, idx) => (
+            <div key={plan.titleKey || idx} className="card">
+              <h3>{t(plan.titleKey)}</h3>
+              {plan.descriptionKey && <p className="description">{t(plan.descriptionKey)}</p>}
+              <p className="price">
+                ${plan.price} <span>/ project</span>
+              </p>
+
+              {plan.featuresKeys && (
                 <ul className="features">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className={feature.includes("❌") ? "disabled" : "enabled"}>
-                      {feature}
+                  {plan.featuresKeys.map((featureKey, idx) => (
+                    <li key={idx} className="enabled">
+                      {t(featureKey)}
                     </li>
                   ))}
                 </ul>
               )}
+
               <button className="cta-button" onClick={() => handleStartClick(plan, activeCategory)}>
                 {t("getStartedNow")}
               </button>
@@ -136,7 +140,9 @@ export default function PricingSection() {
       {showModal && selectedPlan && (
         <div className="modal-overlay" onClick={handleOverlayClick}>
           <div className="modal-content slide-in">
-            <h2>{t("getStartedWith")} {selectedPlan.planTitle} ({t(`categories.${selectedPlan.category}`)})</h2>
+            <h2>
+              {t("getStartedWith")} {t(selectedPlan.planTitleKey)} ({t(`categories.${selectedPlan.category}`)})
+            </h2>
             <form onSubmit={handleSubmit} className="modal-form">
               <div className="form-row">
                 <div className="form-group">

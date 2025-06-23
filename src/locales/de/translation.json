@@ -66,5 +66,309 @@
     "graphicDesignBranding": "Branding & Design",
     "softwareAppDevelopment": "Software / App Entwicklung",
     "comboDeals": "Kombi-Angebote"
+  },
+
+  "pricingData": {
+    "photoVideoProduction": {
+      "contentStarter": {
+        "title": "Content-Starter",
+        "description": "Perfekt für Cafés, Läden, Salons oder persönliche Marken mit monatlichem Content-Bedarf.",
+        "features": {
+          "feature1": "2-stündiges lokales Shooting",
+          "feature2": "10 professionell bearbeitete Fotos",
+          "feature3": "1 Instagram-Reel (15–30 Sek.)",
+          "feature4": "Grundbeleuchtung & Bearbeitung",
+          "feature5": "Lieferung in 3 Tagen"
+        }
+      },
+      "contentPro": {
+        "title": "Content-Profi",
+        "description": "Ideal für kleine Unternehmen oder Airbnb-Gastgeber mit regelmäßigem Contentbedarf.",
+        "features": {
+          "feature1": "4-stündiges Shooting",
+          "feature2": "30 bearbeitete Fotos (Innenraum, Produkt, Lifestyle)",
+          "feature3": "2–3 Instagram-Reels (15–60 Sek.)",
+          "feature4": "1-minütiges Promo-Video",
+          "feature5": "Lichtregie & Skript"
+        }
+      },
+      "contentDeluxe": {
+        "title": "Content-Deluxe",
+        "description": "Für Hotels, Restaurants oder Events mit Fokus auf Online-Präsenz.",
+        "features": {
+          "feature1": "Ganztägiges Shooting (bis zu 8 Stunden)",
+          "feature2": "60+ bearbeitete Fotos",
+          "feature3": "5 Reels (plattformübergreifend optimiert)",
+          "feature4": "2-minütiger Business-Promo mit Logoanimation",
+          "feature5": "Einfache Drohnenaufnahmen inklusive",
+          "feature6": "Lizenzierte Musik"
+        }
+      }
+    },
+    "websiteDesign": {
+      "basicWebsite": {
+        "title": "Basis-Website",
+        "description": "Ideal für Freiberufler, lokale Geschäfte oder Künstler.",
+        "features": {
+          "feature1": "Bis zu 5 Seiten (Start, Über uns, Leistungen, Kontakt, Galerie)",
+          "feature2": "Mobil responsive",
+          "feature3": "Individuelles Layout (keine Vorlagen)",
+          "feature4": "Kontaktformular + Kartenintegration",
+          "feature5": "Schnelle Ladezeiten",
+          "feature6": "WhatsApp/Chat-Integration"
+        }
+      },
+      "businessWebsite": {
+        "title": "Business-Website",
+        "description": "Für kleine Firmen, Salons oder Reiseunternehmen.",
+        "features": {
+          "feature1": "6–10 Seiten",
+          "feature2": "WordPress- oder Shopify-CMS",
+          "feature3": "Blog-/Portfolio-Einrichtung",
+          "feature4": "Basis-SEO (Keywords, Meta-Tags)",
+          "feature5": "Produktliste oder Service-Menü",
+          "feature6": "Instagram-Feed-Integration"
+        }
+      },
+      "customWebApp": {
+        "title": "Individuelle Web-App",
+        "description": "Für Start-ups, Dienstleister oder E-Commerce-Unternehmen.",
+        "features": {
+          "feature1": "Entwickelt mit MERN/Next.js",
+          "feature2": "Benutzer-Dashboard & Panel",
+          "feature3": "Buchungs-, Reservierungs- oder CRM-Integration",
+          "feature4": "Stripe/PayPal-Zahlungen",
+          "feature5": "Admin-Management-Panel",
+          "feature6": "UI/UX maßgeschneidertes Design",
+          "feature7": "API-Integrationen verfügbar"
+        }
+      }
+    },
+    "digitalMarketing": {
+      "socialStarter": {
+        "title": "Social Starter",
+        "description": "Für Einzelpersonen, Künstler oder kleine Geschäfte entwickelt.",
+        "features": {
+          "feature1": "8 Instagram-/Facebook-Posts pro Monat",
+          "feature2": "2 Reels (filmiert oder animiert)",
+          "feature3": "Content-Kalender",
+          "feature4": "Beschriftungen in Italienisch & Englisch",
+          "feature5": "Planung & Veröffentlichung"
+        }
+      },
+      "socialPro": {
+        "title": "Social Pro",
+        "description": "Für Restaurants, Boutiquen und kleine Marken.",
+        "features": {
+          "feature1": "12 Posts/Monat",
+          "feature2": "4 Reels oder TikToks",
+          "feature3": "Facebook- und Instagram-Management",
+          "feature4": "Hashtag-Strategie & Einblicke",
+          "feature5": "Basis-Anzeigenunterstützung (1 Kampagneneinrichtung)",
+          "feature6": "Kommentare & DMs verwaltet (optional)"
+        }
+      },
+      "socialPremium": {
+        "title": "Social Premium",
+        "description": "Für Unternehmen, die online wachsen möchten.",
+        "features": {
+          "feature1": "20+ hochwertige Beiträge (Fotos/Videos/Grafiken)",
+          "feature2": "8 Reels (Trendformat)",
+          "feature3": "Strategieerstellung & Anzeigentests",
+          "feature4": "Google- & Meta-Anzeigen-Setup",
+          "feature5": "Monatliche Berichte mit Wachstumseinblicken",
+          "feature6": "Leistungsbasierte Content-Optimierung"
+        },
+        "adsPricing": {
+          "metaAdSetup": "Meta-Anzeigen-Setup",
+          "googleAdsSetup": "Google-Anzeigen-Setup",
+          "monthlyAdManagement": "Monatliche Anzeigenverwaltung"
+        }
+      }
+    },
+    "graphicDesignBranding": {
+      "logoKit": {
+        "title": "Logo Kit",
+        "features": {
+          "feature1": "2 Logokonzepte + 1 finales Design",
+          "feature2": "Alle Dateiformate (PNG, SVG, PDF)",
+          "feature3": "Markenfarben & Schriftarten",
+          "feature4": "Logo-Nutzungsanleitung"
+        }
+      },
+      "brandStarter": {
+        "title": "Brand Starter",
+        "features": {
+          "feature1": "Logo + Farbpalette + Schriftarten",
+          "feature2": "Social-Media-Vorlagen (Instagram-Grid & Stories)",
+          "feature3": "Visitenkartendesign",
+          "feature4": "Titelbild/Banner für Facebook oder LinkedIn"
+        }
+      },
+      "fullBrandPack": {
+        "title": "Full Brand Pack",
+        "features": {
+          "feature1": "Logo + visuelles Identitätssystem",
+          "feature2": "Markenhandbuch (Typografie, Nutzung, visuelle Gestaltung)",
+          "feature3": "Visitenkarten, Broschüren, IG-Highlights und Produktetiketten",
+          "feature4": "Mockups für Social Media, Website und Verpackung"
+        }
+      }
+    },
+    "softwareAppDevelopment": {
+      "mvpApp": {
+        "title": "MVP-App",
+        "description": "Für Start-ups und kleine Tools.",
+        "features": {
+          "feature1": "Entwickelt mit MERN-Stack oder Firebase",
+          "feature2": "Benutzer-Login/-Registrierung",
+          "feature3": "Dashboard, Datenspeicherung",
+          "feature4": "E-Mail/Passwort + Social Login",
+          "feature5": "Mobile-first responsive Design"
+        }
+      },
+      "businessPlatform": {
+        "title": "Business-Plattform",
+        "description": "Für Dienstleistungsunternehmen, CRM-Tools oder POS-Systeme.",
+        "features": {
+          "feature1": "Individuelles Dashboard",
+          "feature2": "Admin- & Benutzerrollen",
+          "feature3": "Buchungs-, Produkt- oder Serviceverwaltung",
+          "feature4": "Zahlungsintegration (Stripe, PayPal)",
+          "feature5": "API-Integration",
+          "feature6": "Benachrichtigungs-/E-Mail-System"
+        }
+      },
+      "enterpriseApp": {
+        "title": "Enterprise-App",
+        "description": "Fortschrittliche Full-Stack-Web-App",
+        "features": {
+          "feature1": "Sicheres Backend, Analyse-Dashboard",
+          "feature2": "Admin- & Mitarbeiterzugriffe",
+          "feature3": "Monatliche Wartung & Deployment inklusive",
+          "feature4": "Servereinrichtung (AWS/Vercel) inklusive"
+        },
+        "supportPlans": {
+          "monthlySupport": "Monatlicher Support & Wartung",
+          "hourlyDevWork": "Stündliche Entwicklungsarbeit"
+        }
+      }
+    },
+    "comboDeals": {
+      "startupKit": {
+        "title": "Startup-Kit",
+        "description": "Logo + Basis-Website + 10 Produktfotos + 1 Instagram-Reel"
+      },
+      "smbBooster": {
+        "title": "SMB-Booster",
+        "description": "Business-Website + Brand-Starter-Pack + 1 Monat Social Content"
+      },
+      "allInOneDigital": {
+        "title": "All-In-One Digital",
+        "description": "Website + Markenidentität + Content-Tag (Fotos/Videos) + 2 Monate Marketing & Anzeigen"
+      }
+    }
+  },
+
+  "inquirySuccess": "Anfrage erfolgreich gesendet!",
+  "inquiryFailed": "Senden fehlgeschlagen. Bitte versuchen Sie es erneut!",
+
+  "whyOnly": "Warum nur",
+  "whyFeatures": [
+    {
+      "title": "Faire Preise",
+      "description": "Genießen Sie erschwingliche Pakete, die maximalen Wert bieten, ohne Ihr Budget zu überlasten."
+    },
+    {
+      "title": "Kreative Power",
+      "description": "Unser Kreativteam bringt frische Ideen, die Ihre Marke im Markt hervorheben."
+    },
+    {
+      "title": "Bewährter Erfolg",
+      "description": "Wir liefern messbare Ergebnisse, die Ihr Geschäft voranbringen."
+    },
+    {
+      "title": "Pünktliche Lieferung",
+      "description": "Wir respektieren Ihre Zeitvorgaben und liefern pünktlich."
+    },
+    {
+      "title": "Zuverlässiger Support",
+      "description": "Unser Team steht Ihnen jederzeit zur Seite, um schnell zu helfen."
+    },
+    {
+      "title": "Individuelle Lösungen",
+      "description": "Unsere Services sind maßgeschneidert auf Ihre Markenbedürfnisse."
+    },
+    {
+      "title": "Experten-Team",
+      "description": "Arbeiten Sie mit Profis, die Ihre Vision verwirklichen."
+    },
+    {
+      "title": "Moderne Tools",
+      "description": "Wir nutzen modernste Technologien für innovative Lösungen."
+    },
+    {
+      "title": "Klare Kommunikation",
+      "description": "Wir halten Sie mit klaren Updates und einfacher Zusammenarbeit informiert."
+    },
+    {
+      "title": "Kundenfokus",
+      "description": "Ihre Zufriedenheit hat oberste Priorität – wir übertreffen Erwartungen."
+    }
+  ],
+
+  "blogSection": {
+    "subtitle": "Lerne neue Technologien",
+    "heading": "Lies unseren Blog"
+  },
+  "contactForm": {
+    "firstName": "Vorname *",
+    "lastName": "Nachname *",
+    "email": "E-Mail-Adresse *",
+    "phone": "Telefonnummer *",
+    "countryCode": "Ländervorwahl",
+    "message": "Nachricht *",
+    "policyLabel": "Mit dem Absenden des Formulars akzeptiere ich die",
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "sendMessage": "Nachricht senden",
+    "success": "Formular erfolgreich übermittelt!",
+    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    "fail": "Übermittlung fehlgeschlagen. Bitte später erneut versuchen.",
+    "validation": {
+      "fillRequired": "Bitte fülle alle Pflichtfelder aus.",
+      "selectCode": "Bitte wähle eine Ländervorwahl.",
+      "invalidEmail": "Bitte gib eine gültige E-Mail-Adresse ein.",
+      "invalidPhone": "Bitte gib eine gültige Telefonnummer ein (7–15 Ziffern).",
+      "enterMessage": "Bitte gib mindestens ein Wort in der Nachricht ein.",
+      "acceptPolicy": "Bitte stimme der Datenschutzrichtlinie zu."
+    },
+    "heyThere": "Hallo!",
+    "letsChat": "Lass uns reden",
+    "interested": "Möchtest du mit uns zusammenarbeiten?",
+    "fillForm": "Oder hast du eine allgemeine Anfrage? Fülle das Formular aus, unser Team meldet sich bald bei dir.",
+    "hateForms": "Du hasst Formulare?",
+    "emailInstead": "Wenn du uns lieber direkt schreiben möchtest, dann hier:"
+  },
+
+  "footer": {
+    "studioName": "Alpine Marketing Studio",
+    "services": "Dienstleistungen",
+    "design": "Design",
+    "photo": "Foto",
+    "video": "Video",
+    "web": "Web",
+    "social": "Soziale Medien",
+    "resources": "Ressourcen",
+    "blog": "Blog",
+    "tutorials": "Tutorials",
+    "caseStudies": "Fallstudien",
+    "guides": "Leitfäden",
+    "contactUs": "Kontaktiere uns",
+    "subscribe": "Abonniere unseren Newsletter",
+    "placeholderEmail": "Deine E-Mail-Adresse",
+    "subscribeBtn": "Abonnieren",
+    "rightsReserved": "Alle Rechte vorbehalten.",
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen"
   }
 }

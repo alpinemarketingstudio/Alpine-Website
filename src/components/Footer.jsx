@@ -1,41 +1,44 @@
 import React from "react";
 import "../styles/Footer.css";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="alpine-footer">
       <div className="footer-overlay">
         <div className="footer-header">
-          <h2>Alpine Marketing Studio</h2>
+          <h2>{t("footer.studioName")}</h2>
         </div>
 
         <div className="footer-wrapper">
           <div className="footer-mobile-row">
             <div className="footer-column">
-              <h4>Services</h4>
+              <h4>{t("footer.services")}</h4>
               <ul>
-                <li><a href="#design">Design</a></li>
-                <li><a href="#photo">Photo</a></li>
-                <li><a href="#video">Video</a></li>
-                <li><a href="#web">Web</a></li>
-                <li><a href="#social">Social</a></li>
+                <li><a href="#design">{t("footer.design")}</a></li>
+                <li><a href="#photo">{t("footer.photo")}</a></li>
+                <li><a href="#video">{t("footer.video")}</a></li>
+                <li><a href="#web">{t("footer.web")}</a></li>
+                <li><a href="#social">{t("footer.social")}</a></li>
               </ul>
             </div>
 
             <div className="footer-column">
-              <h4>Resources</h4>
+              <h4>{t("footer.resources")}</h4>
               <ul>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#tutorials">Tutorials</a></li>
-                <li><a href="#case-studies">Case Studies</a></li>
-                <li><a href="#guides">Guides</a></li>
+                <li><a href="#blog">{t("footer.blog")}</a></li>
+                <li><a href="#tutorials">{t("footer.tutorials")}</a></li>
+                <li><a href="#case-studies">{t("footer.caseStudies")}</a></li>
+                <li><a href="#guides">{t("footer.guides")}</a></li>
               </ul>
             </div>
           </div>
 
           <div className="footer-mobile-row contact-subscribe-row">
             <div className="footer-column">
-              <h4>Contact Us</h4>
+              <h4>{t("footer.contactUs")}</h4>
               <p className="phone-row">
                 <i
                   className="fab fa-whatsapp"
@@ -84,20 +87,22 @@ const Footer = () => {
             </div>
 
             <div className="footer-column subscribe-column">
-              <h4>Subscribe to our Newsletter</h4>
+              <h4>{t("footer.subscribe")}</h4>
               <form className="subscribe-form">
-                <input type="email" placeholder="Your email address" />
-                <button type="submit">Subscribe</button>
+                <input type="email" placeholder={t("footer.placeholderEmail")} />
+                <button type="submit">{t("footer.subscribeBtn")}</button>
               </form>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <div>&copy; {new Date().getFullYear()} Alpine Marketing Studio. All rights reserved.</div>
+          <div>
+            &copy; {new Date().getFullYear()} {t("footer.studioName")}. {t("footer.rightsReserved")}
+          </div>
           <div className="footer-links">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms of Service</a>
+            <a href="#privacy">{t("footer.privacyPolicy")}</a>
+            <a href="#terms">{t("footer.terms")}</a>
           </div>
         </div>
       </div>

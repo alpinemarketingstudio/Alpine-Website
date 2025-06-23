@@ -3,11 +3,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "../styles/WhyAlpine.css";
-import features from "../data/whyFeatures";
+import { useTranslation } from "react-i18next";
 
 export default function WhyAlpine() {
+  const { t } = useTranslation();
   const swiperRef = useRef(null);
   const pauseTimerRef = useRef(null);
+
+  const features = t("whyFeatures", { returnObjects: true });
 
   const handlePause = () => {
     pauseTimerRef.current = setTimeout(() => {
@@ -24,9 +27,9 @@ export default function WhyAlpine() {
     <section className="why-alpine-section">
       <div className="why-alpine-container">
         <h2 className="why-heading">
-          <span className="white-text">Why Only </span>
+          <span className="white-text">{t("whyOnly")} </span>
           <span className="green-text">Alpine</span>
-          <span className="white-text">? </span>
+          <span className="white-text">?</span>
         </h2>
 
         <Swiper

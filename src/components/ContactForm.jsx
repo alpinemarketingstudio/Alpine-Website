@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { countryCodes } from "../data/countryCode.js";
-
 import "../styles/ContactForm.css";
 import { toast } from "react-toastify";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const ContactForm = () => {
+  const { t } = useTranslation();
+
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -26,45 +28,37 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const { firstName, lastName, email, phone_code, phone, message, agree } = form;
 
-    const { firstName, lastName, email, phone_code, phone, message, agree } =
-      form;
-
-    // Validation
-    if (
-      !firstName.trim() ||
-      !lastName.trim() ||
-      !email.trim() ||
-      !phone.trim()
-    ) {
-      toast.error("Please fill all required fields.");
+    if (!firstName.trim() || !lastName.trim() || !email.trim() || !phone.trim()) {
+      toast.error(t("contactForm.validation.fillRequired"));
       return;
     }
 
     if (!phone_code) {
-      toast.error("Please select a country code.");
+      toast.error(t("contactForm.validation.selectCode"));
       return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email.trim())) {
-      toast.error("Please enter a valid email address.");
+      toast.error(t("contactForm.validation.invalidEmail"));
       return;
     }
 
     const phonePattern = /^[0-9]{7,15}$/;
     if (!phonePattern.test(phone.trim())) {
-      toast.error("Please enter a valid phone number (7-15 digits).");
+      toast.error(t("contactForm.validation.invalidPhone"));
       return;
     }
 
     if (!/\b\w+\b/.test(message.trim())) {
-      toast.error("Please enter at least one word in the message.");
+      toast.error(t("contactForm.validation.enterMessage"));
       return;
     }
 
     if (!agree) {
-      toast.error("Please agree to the privacy policy.");
+      toast.error(t("contactForm.validation.acceptPolicy"));
       return;
     }
 
@@ -85,22 +79,14 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        toast.success("Form submitted successfully!");
-        setForm({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone_code: "",
-          phone: "",
-          message: "",
-          agree: false,
-        });
+        toast.success(t("contactForm.success"));
+        setForm({ firstName: "", lastName: "", email: "", phone_code: "", phone: "", message: "", agree: false });
       } else {
         const data = await response.json();
-        toast.error(data?.error || "Something went wrong. Please try again.");
+        toast.error(data?.error || t("contactForm.error"));
       }
     } catch {
-      toast.error("Failed to submit. Please try again later.");
+      toast.error(t("contactForm.fail"));
     }
   };
 
@@ -108,69 +94,24 @@ const ContactForm = () => {
     <div className="contact-form-wrapper">
       <div className="form-container">
         <div className="form-left">
-          {/* <div className="form-headings">
-            <h2>Get in Touch in our expert team</h2>
-            <p>Our friendly team would love to hear from you.</p>
-          </div> */}
-
           <form onSubmit={handleSubmit} noValidate>
             <div className="row">
               <div className="field">
-                <label htmlFor="firstName"></label>
-                <input
-                  type="text"
-                  name="firstName"
-                  id="firstName"
-                  value={form.firstName}
-                  onChange={handleChange}
-                  placeholder="First Name *"
-                  required
-                  aria-required="true"
-                />
+                <input type="text" name="firstName" value={form.firstName} onChange={handleChange} placeholder={t("contactForm.firstName")} required />
               </div>
               <div className="field">
-                <label htmlFor="lastName"></label>
-                <input
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                  value={form.lastName}
-                  onChange={handleChange}
-                  placeholder="Last Name *"
-                  required
-                  aria-required="true"
-                />
+                <input type="text" name="lastName" value={form.lastName} onChange={handleChange} placeholder={t("contactForm.lastName")} required />
               </div>
             </div>
 
             <div className="field full">
-              <label htmlFor="email"></label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="Email Address*"
-                required
-                aria-required="true"
-              />
+              <input type="email" name="email" value={form.email} onChange={handleChange} placeholder={t("contactForm.email")} required />
             </div>
 
             <div className="row">
               <div className="field code">
-                <label htmlFor="phone_code"></label>
-                <select
-                  name="phone_code"
-                  id="phone_code"
-                  value={form.phone_code}
-                  onChange={handleChange}
-                  aria-label="Country dialing code"
-                  required
-                >
-                  <option id="cc" value="">
-                    Country Code
-                  </option>
+                <select name="phone_code" value={form.phone_code} onChange={handleChange} required>
+                  <option value="">{t("contactForm.countryCode")}</option>
                   {countryCodes.map(({ code, label }) => (
                     <option key={code} value={code}>
                       {label} ({code})
@@ -179,98 +120,51 @@ const ContactForm = () => {
                 </select>
               </div>
               <div className="field phone">
-                <label htmlFor="phone"></label>
-                <input
-                  type="tel"
-                  name="phone"
-                  id="phone"
-                  value={form.phone}
-                  placeholder="Phone Number *"
-                  onChange={handleChange}
-                  required
-                  aria-required="true"
-                />
+                <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder={t("contactForm.phone")} required />
               </div>
             </div>
 
             <div className="field full">
-              <label htmlFor="message"></label>
-              <textarea
-                name="message"
-                id="message"
-                rows="4"
-                placeholder="Message *"
-                value={form.message}
-                onChange={handleChange}
-                required
-                aria-required="true"
-              ></textarea>
+              <textarea name="message" rows="4" value={form.message} onChange={handleChange} placeholder={t("contactForm.message")} required></textarea>
             </div>
 
             <div className="form-check">
-              <input
-                type="checkbox"
-                id="policyCheck"
-                name="agree"
-                className="custom-checkbox"
-                checked={form.agree}
-                onChange={handleChange}
-                aria-required="true"
-              />
+              <input type="checkbox" id="policyCheck" name="agree" checked={form.agree} onChange={handleChange} />
               <label htmlFor="policyCheck">
-                By submitting this for I accept the{" "}
-                <a href="#">privacy policy</a> of this site.
+                {t("contactForm.policyLabel")} <a href="#">{t("contactForm.privacyPolicy")}</a>.
               </label>
             </div>
 
             <button type="submit" className="btn-submit">
-              Send Message
+              {t("contactForm.sendMessage")}
             </button>
           </form>
         </div>
 
         <div className="form-right" aria-hidden="true">
           <div className="creative-message">
-            <h1>Hey there!</h1>
-            <p className="lead">Let's chat</p>
+            <h1>{t("contactForm.heyThere")}</h1>
+            <p className="lead">{t("contactForm.letsChat")}</p>
             <p className="description">
-              <h4>Interested in working with us?</h4>
-              <p>
-                Or have a general enquiry? Fill in the form today, and our team
-                will be in touch shortly.
-              </p>
+              <h4>{t("contactForm.interested")}</h4>
+              <p>{t("contactForm.fillForm")}</p>
             </p>
             <p className="description-2">
-              <h4>Hate Forms?</h4>
-              <p>If you’d prefer to email us directly,then here is our :</p>
-              <br />
+              <h4>{t("contactForm.hateForms")}</h4>
+              <p>{t("contactForm.emailInstead")}</p>
             </p>
             <div className="contact-points">
-              <a
-                href="mailto:info@alpinemarketingstudio.com"
-                className="contact-item"
-              >
+              <a href="mailto:info@alpinemarketingstudio.com" className="contact-item">
                 <FaEnvelope className="contact-icon" />
-                <span className="contact-link">
-                  info@alpinemarketingstudio.com
-                </span>
+                <span className="contact-link">info@alpinemarketingstudio.com</span>
               </a>
-
               <a href="tel:+441234567890" className="contact-item">
                 <FaPhoneAlt className="contact-icon" />
                 <span className="contact-link">+44 123 456 7890</span>
               </a>
-
-              <a
-                href="https://maps.google.com?q=123+Creative+Lane,+London,+UK"
-                className="contact-item"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://maps.google.com?q=123+Creative+Lane,+London,+UK" target="_blank" rel="noopener noreferrer" className="contact-item">
                 <FaMapMarkerAlt className="contact-icon" />
-                <span className="contact-link">
-                  123 Creative Lane, London, UK
-                </span>
+                <span className="contact-link">123 Creative Lane, London, UK</span>
               </a>
             </div>
           </div>
