@@ -33,6 +33,8 @@ __pycache__/
 
 # Environment variable files
 backend/.env
+.env
+.env.*
 
 # Django default files
 backend/db.sqlite3

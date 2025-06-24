@@ -353,6 +353,7 @@
 
   "footer": {
     "studioName": "Alpine Marketing Studio",
+    "studioDescription": "We create standout content & digital solutions for forward-thinking businesses. Let's grow together.",
     "services": "Services",
     "design": "Design",
     "photo": "Photo",
@@ -366,6 +367,7 @@
     "guides": "Guides",
     "contactUs": "Contact Us",
     "subscribe": "Subscribe to our Newsletter",
+    "newsletterText": "Subscribe for updates, strategies & insights.",
     "placeholderEmail": "Your email address",
     "subscribeBtn": "Subscribe",
     "rightsReserved": "All rights reserved.",

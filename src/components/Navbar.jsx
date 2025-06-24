@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Sling as Hamburger } from "hamburger-react";
 import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import "../styles/Navbar.css";
 
@@ -14,39 +15,50 @@ const navItems = [
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isHome, setIsHome] = useState(true);
   const [activeNav, setActiveNav] = useState(null);
   const { t, i18n } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const changeLanguage = (lang) => {
-    i18n.changeLanguage(lang);
-  };
-
-  const handleToggle = () => setMenuOpen(!menuOpen);
-
-  const handleContactClick = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-    setMenuOpen(false);
-    setActiveNav(null);
-  };
-
-  const handleNavClick = (name) => {
+  // Smooth scroll to section if on home page; otherwise navigate to home with hash
+  const handleNavClick = (name, href) => {
     setMenuOpen(false);
     setActiveNav(name === "home" ? null : name);
+
+    if (location.pathname === "/") {
+      // On Home page: scroll directly
+      const section = document.querySelector(href);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // On other page: navigate to home + hash (e.g., /#services)
+      navigate("/" + href);
+    }
   };
 
+  // Scroll contact section
+  const handleContactClick = () => {
+    setMenuOpen(false);
+    if (location.pathname === "/") {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    } else {
+      navigate("/#contact");
+    }
+  };
+
+  // On scroll, update active nav item
   useEffect(() => {
+    if (location.pathname !== "/") {
+      setActiveNav(null);
+      return;
+    }
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
-
-      const homeSection = document.getElementById("home");
-      if (homeSection) {
-        const homeHeight = homeSection.offsetHeight;
-        setIsHome(scrollY < homeHeight - 100);
-      }
 
       let currentSection = null;
       navItems.forEach((item) => {
@@ -55,7 +67,6 @@ function Navbar() {
           if (section) {
             const sectionTop = section.offsetTop - 150;
             const sectionHeight = section.offsetHeight;
-
             if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
               currentSection = item.name;
             }
@@ -70,19 +81,24 @@ function Navbar() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [location.pathname]);
+
+  // Change language
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
 
   return (
     <nav
       className={`navbar navbar-expand-lg fixed-top custom-navbar px-3 ${
-        isHome ? "navbar-home" : "navbar-scrolled"
+        location.pathname === "/" ? "navbar-home" : "navbar-scrolled"
       }`}
     >
       <div className="container-fluid justify-content-between align-items-center">
         <a
           className="navbar-brand d-flex align-items-center gap-2"
-          href="#home"
-          onClick={() => handleNavClick("home")}
+          href="/"
+          onClick={() => handleNavClick("home", "#home")}
         >
           <img src={logo} alt="Logo" className="logo-img" />
           <span className="brand-text">Alpine Marketing Studio</span>
@@ -114,7 +130,10 @@ function Navbar() {
                       activeNav === item.name ? "active" : ""
                     }`}
                     href={item.href}
-                    onClick={() => handleNavClick(item.name)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item.name, item.href);
+                    }}
                   >
                     {t(item.name)}
                   </a>
@@ -134,7 +153,7 @@ function Navbar() {
 
             <li className="nav-item d-lg-none mt-2">
               <select
-                className="form-select form-select-sm bg-dark text-white "
+                className="form-select form-select-sm bg-dark text-white"
                 onChange={(e) => changeLanguage(e.target.value)}
                 value={i18n.language || "en"}
               >

@@ -7,10 +7,8 @@
   position: fixed;
   width: 100%;
   top: 0;
-
-  /* Standard navbar height */
-  height: 78.95px;        /* typical navbar height */
-  line-height: 56px;   /* vertically center inline content */
+  height: 78.95px;       
+  line-height: 56px;   
 }
 
 .logo-img {
@@ -24,7 +22,7 @@
   font-weight: 500;
   font-size: 1.1rem;
   white-space: nowrap;
-  line-height: normal; /* reset to avoid clash with navbar */
+  line-height: normal; 
   display: flex;
   align-items: center;
 }

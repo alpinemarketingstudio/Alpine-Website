@@ -1,4 +1,3 @@
-// src/data/ServicesData.js
 const servicesData = [
   {
     titleKey: "serviceData.videography.title",
