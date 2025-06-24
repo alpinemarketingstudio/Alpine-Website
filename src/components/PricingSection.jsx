@@ -56,7 +56,7 @@ export default function PricingSection() {
     };
 
     try {
-      await axios.post("http://localhost:8000/api/service-inquiry/", payload);
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/service-inquiry/`, payload);
       toast.success(t("inquirySuccess"));
       setFormData({
         first_name: "",

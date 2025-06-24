@@ -25,8 +25,13 @@ SECRET_KEY = 'django-insecure-&7_*^c^a6+!_n0ow_#7#=iy7@j5(mvu(t@b_7f%g#f73no_z$%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["alpinemarketingstudio.com","www.aplinemarketingstudio.com","145.223.96.66"]
-
+ALLOWED_HOSTS = [
+    "alpinemarketingstudio.com",
+    "www.alpinemarketingstudio.com",
+    "145.223.96.66",
+    "127.0.0.1",
+    "localhost",
+]
 
 # Application definition
 
