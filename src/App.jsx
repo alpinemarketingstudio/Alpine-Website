@@ -15,6 +15,12 @@ import AdminContacts from './pages/AdminContacts';
 import AdminLoginPage from './pages/AdminLoginPage';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminServiceInquiries from './pages/AdminServiceInquiries';
+import Photography from './components/Photography'; 
+import Graphics from './components/Graphics'; 
+import Videography from './components/Videography'; 
+import Web from './components/Web'; 
+import Digital from './components/Digital'; 
+
 
 function PrivateRoute({ children }) {
   const token = localStorage.getItem('adminToken');
@@ -38,7 +44,15 @@ function AppWrapper() {
   return (
     <Layout>
       <Routes>
+        {/* Public Routes */}
         <Route path="/" element={<HomePage />} />
+        <Route path="/photography" element={<Photography />} /> 
+        <Route path="/graphics" element={<Graphics />} />
+        <Route path="/videography" element={<Videography />} />
+        <Route path="/web" element={<Web />} />
+        <Route path="/digital" element={<Digital />} />
+        
+        {/* Admin Routes */}
         <Route path="/dashboard/login" element={<AdminLoginPage />} />
         <Route
           path="/dashboard"
