@@ -1,0 +1,90 @@
+.videography-page {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.videography-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.5);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.content-wrapper {
+  max-width: 900px;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.title {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+.description {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+}
+
+.services-list {
+  list-style: none;
+  padding: 0;
+  font-size: 1.2rem;
+  line-height: 2;
+  letter-spacing: 0.5px;
+  max-width: 400px;
+  margin: 0 auto;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.6);
+}
+
+/* Animation for fade-in up */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  .description {
+    font-size: 1rem;
+  }
+  .services-list {
+    font-size: 1rem;
+  }
+}
