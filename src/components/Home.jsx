@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import heroVideo from "../assets/vid1.mp4";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
   const { t } = useTranslation();
+  const location = useLocation();
 
+  // Scroll to services section on button click
   const scrollToSection = () => {
     const section = document.getElementById("services");
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  // Scroll to hash section on initial render (when URL contains a hash)
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const section = document.getElementById(id);
+      if (section) {
+        // Timeout to wait for DOM render
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [location]);
 
   return (
     <>
