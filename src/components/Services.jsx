@@ -1,8 +1,9 @@
-// Services.jsx
 import React from "react";
 import { useTranslation, Trans } from "react-i18next";
-import servicesData from "../data/ServicesData";
+import { Link } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
+
+import servicesData from "../data/ServicesData";
 
 import videography from "../assets/vid3.mp4";
 import photography from "../assets/p1.jpg";
@@ -18,6 +19,23 @@ const mediaMap = {
   "img3.jpg": graphics,
   "img5.jpg": webdev,
   "img4.jpg": uiux,
+};
+
+const getServicePath = (titleKey) => {
+  switch (titleKey) {
+    case "serviceData.photography.title":
+      return "/photography";
+    case "serviceData.videography.title":
+      return "/videography";
+    case "serviceData.graphics.title":
+      return "/graphics";
+    case "serviceData.webDevelopment.title":
+      return "/web";
+    case "serviceData.digitalMarketing.title":
+      return "/digital";
+    default:
+      return "/";
+  }
 };
 
 const Services = () => {
@@ -46,7 +64,6 @@ const Services = () => {
           <div key={idx} className="services-row">
             {pair.map((service) => {
               const mediaSrc = mediaMap[service.media];
-
               const title = t(service.titleKey);
               const desc = t(service.descKey);
 
@@ -61,9 +78,7 @@ const Services = () => {
               return (
                 <div
                   key={service.titleKey}
-                  className={`service-item ${
-                    isLarger ? "larger" : isSmaller ? "smaller" : "standard"
-                  } ${isPortrait ? "portrait" : ""}`}
+                  className={`service-item ${isLarger ? "larger" : isSmaller ? "smaller" : "standard"} ${isPortrait ? "portrait" : ""}`}
                 >
                   {service.mediaType === "video" ? (
                     <video
@@ -78,22 +93,19 @@ const Services = () => {
                     <img className="background-image" src={mediaSrc} alt={title} />
                   )}
 
-                  <div
-                    className={`overlay ${
-                      service.titleKey === "serviceData.uiux.title" ? "animated-uiux" : ""
-                    }`}
-                  >
+                  <div className={`overlay ${service.titleKey === "serviceData.uiux.title" ? "animated-uiux" : ""}`}>
                     <h3>{title}</h3>
                     <p>{desc}</p>
 
-                    <a href="#" className="read-more">
+                    <Link to={getServicePath(service.titleKey)} className="read-more">
                       <span>{t("readMore")}</span>
                       <FiArrowRight size={14} />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               );
             })}
+            {/* Fill empty slot if odd number of items */}
             {pair.length === 1 && <div className="service-item empty" />}
           </div>
         ))}
